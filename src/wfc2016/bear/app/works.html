@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="html-works">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>金熊奖评分系统</title>
+    <include file="Bear:tpl_common_head" />
+</head>
+<body class="body-works">
+<div class="works-header"  works-logout>
+    <div class="area">
+        {$area}
+    </div>
+
+</div>
+<div class="work-info-wrapper">
+    <h5 class="tit"></h5>
+    <h6 class="team"></h6>
+</div>
+<div class="work-score-wrapper">
+    <div class="group-line">
+        <label class="group-control">
+            <input works-control min="1" max="25" data-type="step1" class="control" type="number">
+            <span class="text"  >宴会设计(总分25)</span>
+            <span works-score class="score"></span>
+            <span class="line"></span>
+        </label>
+        <div class="group-bar"></div>
+        <label class="group-control">
+            <input  works-control min="1" max="25" data-type="step2"  class="control"  type="number">
+            <span class="text" >感性人文(总分25)</span>
+            <span works-score class="score"></span>
+            <span class="line"></span>
+        </label>
+    </div>
+    <div class="group-line">
+        <label class="group-control">
+            <input works-control min="1" max="20" data-type="step3" class="control" type="number">
+            <span class="text"  >主题创意(总分20)</span>
+            <span works-score class="score"></span>
+            <span class="line"></span>
+        </label>
+        <div class="group-bar"></div>
+        <label class="group-control">
+            <input  works-control min="1" max="20" data-type="step4"  class="control"  type="number">
+            <span class="text" >视觉审美(总分20)</span>
+            <span works-score class="score"></span>
+            <span class="line"></span>
+        </label>
+    </div>
+    <div class="group-line">
+        <label class="group-control">
+            <input works-control min="1" max="10" data-type="step5" class="control" type="number">
+            <span class="text"  >现场表现(总分10)</span>
+            <span works-score class="score"></span>
+            <span class="line"></span>
+        </label>
+        <div class="group-bar un-visible"></div>
+        <label class="group-control">
+        </label>
+    </div>
+
+    <div class="bt-wrapper">
+        <button class="user-bt submit-btn" type="button">提交分数</button>
+    </div>
+
+    <div class="tips-text"></div>
+</div>
+
+<div class="progress-wrapper animated" id="progress-wrapper" style="display: none;" >
+    <div class="progress-box">
+        <div class="progress newtest2"></div>
+    </div>
+    <img class="img-text" src="images/score-begin.png" alt="">
+    <div class="hidden-logout" works-logout ></div>
+</div>
+<div class="pause-wrapper animated" id="pause-wrapper"  >
+    <div>暂停打分</div>
+    <div class="hidden-logout" works-logout ></div>
+</div>
+
+<include file="Bear:tpl_common_foot" />
+<literal>
+    <script>
+        $(function(){
+            window.appData={
+
+            };
+            app.common.init();
+            app.works.init();
+        });
+    </script>
+</literal>
+</body>
+</html>

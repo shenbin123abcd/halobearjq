@@ -1,0 +1,383 @@
+@charset "utf-8";
+@import "hbVariables";
+@import 'lib/bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import 'lib/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
+@import "sprite";
+@include sprites($spritesheet-sprites);
+.wfc-all-nav-wrapper{
+  height: 0.79rem;
+  background-color: #242424;
+  display: flex;
+
+  .links-box{
+    font-size: 0.24rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    //padding: 0 0.1rem;
+    height:0.79rem;
+    line-height: 0.79rem;
+    .link{
+      position: relative;
+      padding: 0 0.15rem;
+      color: #999999;
+      text-decoration: none;
+      //background: #ffffff;
+      //line-height: 1;
+    }
+    .bar{
+      height: 0.4rem;
+      transform: scale(0.5,1);
+      width: 1px;
+      background-color: #999999;
+    }
+  }
+
+  .dropdown{
+
+    font-size: 0.26rem;
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+
+
+    &:first-child{
+      &:before{
+        display: none;
+      }
+    }
+    &:before{
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      height: 0.4rem;
+      margin-top: -0.2rem;
+      transform: scale(0.5,1);
+      width: 1px;
+      background-color: #999999;
+    }
+
+    .dropdown-switch{
+      color: #999999;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      &:active,&:focus{
+        text-decoration: none;
+      }
+    }
+    .dropdown-menu{
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: #242424;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      .dropdown-item{
+        position: relative;
+
+        &:before{
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          background-color: #999999;
+          height: 1px;
+          transform: scale(1,0.5);
+        }
+        &:first-child{
+          //&:before{
+          //  display: none;
+          //}
+        }
+
+      }
+      .item{
+        display: block;
+        text-decoration: none;
+        color: #999999;
+        text-align: center;
+        height: 0.7rem;
+        line-height: 0.70rem;
+
+      }
+
+
+    }
+
+    &.open{
+      color: #999999;
+      .dropdown-menu{
+        display: block;
+
+      }
+    }
+  }
+
+}
+
+
+.wfc2016-bt{
+  display: inline-block;
+
+}
+.wfc2016-bt-main{
+  border: none;
+  padding: 12px 15px;
+  border-radius: 20px;
+  background-color: #ff8f21;
+  box-shadow: 0 3px 12px rgba(150,36,17,.4);
+  background-image: linear-gradient(to top, #ff7123, #ffc354);
+  text-align: center;
+  &:active,&:focus{
+    background-color: #ff7927;
+    background-image:none;
+  }
+  &.disabled{
+    opacity: 0.8;
+  }
+}
+
+.wfc2016-bt-second{
+  border: none;
+  padding: 12px 15px;
+  border-radius: 20px;
+  background-color: #fff;
+  box-shadow: 0 3px 12px rgba(150,36,17,.4);
+  background-image: linear-gradient(to top, #ffd7ac, #fff);
+  text-align: center;
+  &:active,&:focus{
+    background-color: #f2d7c6;
+    background-image:none;
+  }
+  &.disabled{
+    opacity: 0.8;
+  }
+
+}
+
+.wfc2016-ad-wrapper{
+  position: fixed;
+  bottom: 0;
+  z-index: 2;
+  width: 100%;
+  height: 50px;
+
+  background-image: linear-gradient(to right,#ff240d,#ff6420 50%,#ff8e09);
+  display: flex;
+  align-items: center;
+
+  .ad-words{
+    width: 5.3rem;
+    margin-left: 0.24rem;
+  }
+  .line-1{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 5px;
+    left: 8px;
+    transform: scale(0.5);
+    transform-origin: 0 0;
+    white-space: nowrap;
+    .img{
+      width: 3.05rem*2;
+    }
+    .common-sprite-num{
+      display: inline-block;
+      margin-bottom: -8px;
+      &~.common-sprite-num{
+        margin-left: -15px;
+      }
+    }
+  }
+  .line-2-text{
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    margin-top: 2px;
+    color: #ffffff;
+    font-size: 12px;
+    .img{
+      width: 202px;
+    }
+  }
+  .line-2{
+    position: absolute;
+    display: flex;
+    align-items: flex-end;
+    line-height: 1;
+    color: #fde2cf;
+    left: 5px;
+    top: 50%;
+    transform: scale(0.5);
+    transform-origin: 0 0;
+
+    .img{
+      margin-left: 0.1rem*2;
+      width: 0.82rem*2;
+    }
+    .shi,.fen,.miao{
+
+    }
+    .timer{
+      font-size: 0.19rem*2;
+      display: flex;
+      align-items: flex-end;
+    }
+    .common-sprite-num{
+      display: inline-block;
+      //transform: scale(0.5);
+      //transform-origin: 50% 100%;
+      margin-bottom: -8px;
+      &~.common-sprite-num{
+        margin-left: -19px;
+
+      }
+    }
+    .num-wrapper{
+      position: relative;
+      display: flex;
+      align-items: center;
+
+    }
+  }
+
+  .ad-bt{
+    margin-top: 1px;
+    width: 1.72rem;
+    margin-left: -0.1rem;
+
+  }
+  .ad-close{
+    position: absolute;
+    width: 0.4rem;
+    height: 0.4rem;
+    right: 0;
+    top: 0;
+    .img{
+      display: block;
+      margin-top: 0.1rem;
+      margin-left: 0.1rem;
+      width: 0.2rem;
+    }
+
+  }
+}
+
+
+.wfc2016-modal-dialog{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  overflow-x: hidden;
+  overflow-y: auto;
+  .bg{
+    position: fixed;
+    background: #000000;
+    opacity: 0.5;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  .dialog{
+    width: 6rem;
+    margin: 0 auto;
+    border-radius:0.2rem;
+    background-color: #fff;
+    box-shadow: 0 0.03px 0.2px rgba(150,36,17,.5);
+    position: relative;
+    padding-bottom: 0.6rem;
+  }
+  &.wfc2016-modal-dialog--ticket-ok{
+    .dialog{
+      margin-top: 3.68rem;
+    }
+    .text{
+      text-align: center;
+      //padding-top: 2.85rem;
+      padding-top: 1.85rem;
+      font-size: 0.25rem;
+      color: #666;
+      line-height: 2;
+    }
+  }
+  &.wfc2016-modal-dialog--ticket-ok-2{
+
+    .dialog{
+      margin-top: 3.68rem;
+    }
+    .text{
+      text-align: center;
+      //padding-top: 2.85rem;
+      padding-top: 1.85rem;
+      font-size: 0.3rem;
+      color: #666;
+      line-height: 2;
+    }
+  }
+  .ticket-ok{
+    width: 3.35rem;
+    height: 1.89rem;
+    left: 1.18rem;
+    position: absolute;
+    top: -0.7rem;
+    background-image: url(../images/ticket-ok.png);
+    background-position: 0 0;
+    background-repeat:no-repeat;
+    background-size: contain;
+  }
+  .ticket-ok-2{
+    width: 2.81rem;
+    height: 2.14rem;
+    left: 1.4rem;
+    position: absolute;
+    top: -0.7rem;
+    background-image: url(../images/ticket-ok-2.png);
+    background-position: 0 0;
+    background-repeat:no-repeat;
+    background-size: contain;
+  }
+
+  .wfc2016-bt--ticket-ok{
+    .bt-img{
+      width: 1.43rem;
+      height: 0.33rem;
+    }
+  }
+
+  .wfc2016-bt--ticket-ok-2{
+    .bt-img{
+      width: 1.43rem;
+      height: 0.32rem;
+    }
+  }
+
+  .wfc2016-bt{
+    width: 2.86rem;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    padding: 0;
+  }
+  .bt-box{
+    text-align: center;
+    margin-top: 0.7rem;
+  }
+}

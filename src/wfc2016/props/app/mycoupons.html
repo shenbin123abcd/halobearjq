@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="html-1 html-index">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>我的卡券</title>
+    <include file="Props:tpl_common_head" />
+    <include file="Common:tpl_commom_ad_style" />
+</head>
+<body class="body body-index">
+<include file="Common:tpl_wfc_all_nav" />
+<div class="coupons-block" id="coupons-block">
+    <!--<div class="coupons-item" data-type="10" id="record_id1">-->
+        <!--<div class="item-left">-->
+            <!--<img src="images/mycoupons.png" alt="" class="bg-pic">-->
+            <!--<div class="item-content">-->
+                <!--<div class="f-24 price content-price">¥ 100</div>-->
+                <!--<div class="f-11 text">抵用券</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="item-right">-->
+            <!--<div class="item-desc">-->
+                <!--<span class="text f-13"><i class="haloIcon haloIcon-sign f-22"></i>北京i尚婚礼策划培训500元优惠券</span>-->
+                <!--<span class="text f-13">满5000可用</span>-->
+            <!--</div>-->
+            <!--<div class="item-date f-12">-->
+                <!--<i class="haloIcon haloIcon-clock f-22"></i>2016年08月16日 18日 公共展览区-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="coupons-item" data-type="10" id="record_id2">-->
+        <!--<div class="item-left">-->
+            <!--<img src="images/mycoupons.png" alt="" class="bg-pic">-->
+            <!--<div class="item-content">-->
+                <!--<div class="f-24 price content-price">¥ 100</div>-->
+                <!--<div class="f-11 text">抵用券</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="item-right">-->
+            <!--<div class="item-desc">-->
+                <!--<span class="text f-13"><i class="haloIcon haloIcon-sign f-22"></i>北京i尚婚礼策划培训500元优惠券</span>-->
+                <!--<span class="text f-13">满5000可用</span>-->
+            <!--</div>-->
+            <!--<div class="item-date f-12">-->
+                <!--<i class="haloIcon haloIcon-clock f-22"></i>2016年08月16日 18日 公共展览区-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+
+</div>
+
+
+
+
+
+
+<include file="Props:tpl_common_foot" />
+<script>
+    window.appData={
+        coupon:{$coupon},
+    };
+
+    console.log(appData)
+</script>
+
+<script>
+    $(function(){
+        app.common.init();
+        app.mycoupons.init();
+    })
+</script>
+</body>
+</html>

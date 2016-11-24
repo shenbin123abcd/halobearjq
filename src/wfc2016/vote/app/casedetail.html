@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="html-case-detail">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>作品投票</title>
+    <include file="Vote:tpl_common_head" />
+    <include file="Common:tpl_commom_ad_style" />
+</head>
+<body class="body-case-detail">
+<include file="Common:tpl_wfc_all_nav" />
+<div id="vote-preloads"></div>
+    <div class="case-detail-page">
+        <div class="case-detail-content">
+            <a class="case-detail-avatar clearfix" href="/vote/companydetail?id={$data.company_id}">
+                <div class="avatar-pic-wrapper">
+                    <div class="detail-avatar-pic">
+                        <img  class="img" src="{$data.logo}">
+                    </div>
+                </div>
+                <div class="detail-avatar-company f-16">
+                    <span class="text" ><span id="company-name">{$data.team}</span><i class="haloIcon haloIcon-right f-14"></i></span>
+
+                </div>
+            </a>
+            <div class="top-title">
+                <div class="f-17 title">《{$data.title}》</div>
+                <div class="top-col">
+                    <div class="top-col-item">
+                        <div class="top f-13">
+                            票数
+                        </div>
+                        <div class="num f-15">
+                            <span vote-num case="case-{$data.id}">{$data.num}</span>
+                        </div>
+                    </div>
+                    <div class="top-col-item">
+                        <div class="top f-13">
+                            {$data.area_title}
+                        </div>
+                        <div class="num f-15">
+                            {$data.area_rank}
+                        </div>
+                    </div>
+                    <div class="top-col-item">
+                        <div class="top f-13">
+                            全国
+                        </div>
+                        <div class="num f-15">
+                            {$data.all_rank}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ask-tel f-10">
+                <a class="ask-tel-a" href="tel:{$data.contact}" style="color:#e6b942;">
+                    <span><i class="haloIcon haloIcon-tel f-18"></i>致电</span>
+                    <span class="company">{$data.team}</span>
+                    <span>婚礼服务</span>
+                </a>
+            </div>
+            <div class="detail-info-wrapper">
+                <ul class="detail-content-info" id="content-info">
+                    <li class="info-style f-13 "><i class="point f-20">· </i>作品时间 : <span>{$data.date}</span></li>
+                    <notempty name="data.price">
+                        <li class="info-style f-13 "><i class="point f-20">· </i>作品报价 : <span>{$data.price}</span></li>
+                    </notempty>
+                    <li class="info-style f-13 ">
+                        <i class="point f-20">· </i>所属地区 : <span>{$data.province}  {$data.city}</span>
+                    </li>
+                    <li class="info-style f-13"><i class="point f-20">· </i>创意来源 : <span>{$data.from}</span></li>
+                    <notempty name="data.cehua">
+                        <li class="info-style f-13 ">
+                            <i class="point f-20">· </i>婚礼策划 : <span>{$data.cehua}</span>
+                        </li>
+                    </notempty>
+
+                    <notempty name="data.tongchou">
+                        <li class="info-style f-13 ">
+                            <i class="point f-20">· </i>婚礼统筹 : <span>{$data.tongchou}</span>
+                        </li>
+                    </notempty>
+                    <notempty name="data.zhuchi">
+                        <li class="info-style f-13 ">
+                            <i class="point f-20">· </i>婚礼主持 : <span>{$data.zhuchi}</span>
+                        </li>
+                    </notempty>
+                    <notempty name="data.sheying">
+                        <li class="info-style f-13 ">
+                            <i class="point f-20">· </i>婚礼摄影 : <span>{$data.sheying}</span>
+                        </li>
+                    </notempty>
+                    <notempty name="data.shexiang">
+                        <li class="info-style f-13 ">
+                            <i class="point f-20">· </i>婚礼摄像 : <span>{$data.shexiang}</span>
+                        </li>
+                    </notempty>
+                    <notempty name="data.zaoxing">
+                        <li class="info-style f-13 ">
+                            <i class="point f-20">· </i>跟妆造型 : <span>{$data.zaoxing}</span>
+                        </li>
+                    </notempty>
+                    <notempty name="data.dengguang">
+                        <li class="info-style f-13 ">
+                            <i class="point f-20">· </i>舞美灯光 : <span>{$data.dengguang}</span>
+                        </li>
+                    </notempty>
+                    <notempty name="data.huayi">
+                        <li class="info-style f-13 ">
+                            <i class="point f-20">· </i>婚礼花艺 : <span>{$data.huayi}</span>
+                        </li>
+                    </notempty>
+                    <notempty name="data.other">
+                        <li class="info-style f-13 ">
+                            <i class="point f-20">· </i>其它信息 : <span>{$data.other}</span>
+                        </li>
+                    </notempty>
+                </ul>
+                <div class="seeMore-btn" style="display:none;">
+                    <a class="btn f-12 seemore btn-link" id="seemore">查看更多<i class="haloIcon haloIcon-select-arrowdown f-12"></i></a>
+                    <a class="btn f-12 seemore btn-link" id="arrowTop" style="display:none;">收起<i class="top haloIcon haloIcon-select-arrowdown f-12"></i></a>
+                </div>
+            </div>
+            <volist name="images" id="vo">
+                <img class="detail-content-pic lazy" data-original="{$vo.src}" src="data:image/gif;base64,R0lGODlhAQABAIAAAPDw8AAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==">
+            </volist>
+            <div class="detail-content-video" id="video-box" data-video="{$data.video}" style="display: none;" >
+                <iframe height="208" width="100%" frameborder=0 allowfullscreen src="" ></iframe>
+            </div>
+        </div>
+        <div class="case-list" id="case-list">
+            <div class="case-list-title f-17">
+                <div class="case-title">
+                    &nbsp;&nbsp;&nbsp; — 参赛作品 — &nbsp;&nbsp;&nbsp;
+                </div>
+            </div>
+            <div id="company-case-list" data-id="{$data.company_id}" >
+                <div class="loading-box"><i class="haloIcon haloIcon-spin haloIcon-spinner"></i></div>
+            </div>
+        </div>
+        <div class="case-detail-title">
+            <div class="case-detail-wrapper clearfix">
+                <div class="case-detail-left">
+                    <div class="f-16 title">《{$data.title}》</div>
+                    <div class="f-12 sub-title"><span vote-num case="case-{$data.id}" class="f-15">{$data.num}</span>票 / {$data.area_title}区第{$data.area_rank}名·全国区第{$data.all_rank}名</div>
+                </div>
+                <div class="case-detail-right">
+                    <button vote-bt data-id="{$data.id}" data-company-name="{$data.team}" class="btn btn-color-third vote-btn f-15">投&nbsp;票</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<include file="Vote:tpl_foot_qrcode" />
+<include file="Vote:tpl_common_foot" />
+<script>
+    window.appData={
+        area:'{$data.area}',
+        code:{$code},
+        share : {
+            title: '2016中国婚礼策划金熊奖',
+            content: '{$data.team}' +'的作品《'+ '{$data.title}' +'》正在角逐中国婚礼策划最高奖—2016金熊奖！',
+            link: 'http://wfc.halobear.com/vote/casedetail?id={:I("id")}',
+            logo: '{$data.cover}' || 'http://7ktq5x.com1.z0.glb.clouddn.com/vote_wechat_work.png'
+        }
+    };
+</script>
+<script>
+    $(function(){
+        app.common.init();
+        app.caseDetail.init();
+        app.vote.init();
+    })
+</script>
+</body>
+</html>

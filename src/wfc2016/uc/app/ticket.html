@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="html-1 html-ticket">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>个人中心</title>
+    <include file="Uc:tpl_common_head" />
+    <include file="Common:tpl_commom_ad_style" />
+</head>
+<body class="body body-ticket">
+<include file="Common:tpl_wfc_all_nav" />
+<div class="page-wrapper">
+
+    <div class="ticket-info-wrapper" >
+        <div class="img-box">
+            <img class="img" src="{$ticket.headimgurl}" alt="">
+        </div>
+        <div class="name-box">
+            {$ticket.nickname}
+        </div>
+        <div class="id-box">
+            NO.{$ticket.id}
+        </div>
+        <div class="ticket-name-box">
+            <span class="name">
+                2016中国婚礼行业高峰论坛{$ticket.detail.title}
+            </span>
+            <span class="price-css">
+                ￥{$ticket.detail.price}
+            </span>
+        </div>
+
+
+        <eq name="state_arr.is_complete" value="1">
+            <div class="sale-price-success-box" >
+                <eq name="is_owner" value="1">
+                    <img class="img" src="images/congratulations.png" alt="">
+                </eq>
+                <eq name="is_owner" value="0">
+                    <img class="img" src="images/congratulations-friend.png" alt="">
+                </eq>
+            </div>
+
+        </eq>
+        <eq name="state_arr.is_complete" value="0">
+            <div class="onsale-box">
+                <img class="tag" src="images/ticket-onsale.png" alt="">
+            </div>
+            <div class="sale-price-box" >
+                <div class="sale-price-inner">
+                    <img class="rmb" src="images/rmb.png" alt="">
+                    <div class="current-sale-price" id="current-sale-price" data-max="{$ticket.detail.price}" data-num="{$ticket.num}">
+
+                    </div>
+                </div>
+
+            </div>
+        </eq>
+        <div class="ticket-box">
+            <img class="ticket" src="images/ticket-sample.png" alt="">
+            <div class="price"><span class="name">{$ticket.detail.title}</span><span class="num">￥{$ticket.detail.price}</span></div>
+        </div>
+
+
+        <!--<div class="sale-progress-box">-->
+        <!--<div class="pointer" id="pointer" style="display: none;"></div>-->
+        <!--<div class="sale-progress" id="sale-progress" data-num="{$ticket.num}"></div>-->
+        <!--</div>-->
+
+        <!--<eq name="state_arr.is_complete" value="0">-->
+            <!--<div class="sale-progress-box" id="sale-progress" data-max-num="{$ticket.detail.price}" data-min-num="{$min_amount}"  data-num="{$ticket.num}">-->
+
+            <!--</div>-->
+            <!--<div class="sale-limit-box">-->
+                <!--<div class="limit min">{$ticket.detail.price}元</div>-->
+                <!--<div class="limit max">{$min_amount}元</div>-->
+            <!--</div>-->
+
+        <!--</eq>-->
+
+
+        <eq name="is_owner" value="1">
+            <div id="show-bt-box-condition" >
+
+            </div>
+        </eq>
+        <eq name="is_owner" value="0">
+            <div class="sale-bt-box">
+                <a class="uc-bt uc-bt-main apply" href="/uc"  ><img class="bt-img" src="images/bt-text-apply-ticket.png" ></a>
+            </div>
+        </eq>
+
+    </div>
+
+
+
+
+
+    <div class="ticket-friend-list-wrapper" id="ticket-friend-list-wrapper" >
+        <div class="dash"></div>
+        <ul class="ticket-friend-list list-unstyled" >
+            <li class="item active">
+                <a class="link" href="#tab1"  data-toggle="tab">
+                    <i class="dot"></i><span class="tit">好友排名</span><i class="dot"></i>
+                </a>
+            </li>
+            <li class="item" >
+                <a class="link" href="#tab2" data-toggle="tab">
+                    <i class="dot"></i><span class="tit">好友支持</span><i class="dot"></i>
+                </a>
+            </li>
+            <li class="item" >
+                <a class="link" href="#tab3"  data-toggle="tab">
+                    <i class="dot"></i><span class="tit">成功领票</span><i class="dot"></i>
+                </a>
+            </li>
+        </ul>
+        <div class="ticket-friend-content" >
+            <div class="content active" id="tab1">
+                <empty name="list.friend">
+                    <div class="no-data">
+                        <img class="img" src="images/no-friends.png" >
+                        <div class="text">还未有好友参与</div>
+                    </div>
+                <else/>
+                    <div class="list list-friend">
+                        <volist name="list.friend" id="vo">
+                            <a href="/uc/ticket?id={$vo.id}" class="list-item">
+                                <div class="rank">{$i}</div>
+                                <img class="avatar" src="{$vo.headimgurl}">
+                                <div class="nickname mid">{$vo.nickname}</div>
+
+                                <div class="area-1">{$vo.province_title}</div>
+                                <!--<div class="num-bar" >-->
+                                    <!--<div class="line-bar" data-num="{$vo.num}" friend-num-bar ></div>-->
+                                <!--</div>-->
+                                <!--<div class="num-bar-num" >{$vo.num}</div>-->
+                            </a>
+                        </volist>
+                    </div>
+                </empty>
+            </div>
+            <div class="content" id="tab2">
+                <empty name="list.support">
+                    <div class="no-data">
+                        <img class="img" src="images/no-friends.png" >
+                        <div class="text">还未有好友支持</div>
+                    </div>
+                    <else/>
+                    <div class="list list-support">
+                        <volist name="list.support" id="vo">
+                            <a href="/uc/ticket?id={$vo.id}" class="list-item">
+                                <img class="avatar" src="{$vo.headimgurl}">
+                                <div class="nickname">{$vo.nickname}</div>
+                                <div class="support">支持了你</div>
+                                <i class="dialog"></i>
+                                <div class="remark">{$vo.remark|default="好好学习，天天向上！"}</div>
+                            </a>
+                        </volist>
+                    </div>
+                </empty>
+            </div>
+            <div class="content" id="tab3">
+                <empty name="list.success">
+                    <div class="no-data">
+                        <img class="img" src="images/no-friends.png" >
+                    </div>
+                    <else/>
+                    <div class="list list-success">
+                        <volist name="list.success" id="vo">
+                            <a href="/uc/ticket?id={$vo.id}" class="list-item">
+                                <img class="avatar" src="{$vo.headimgurl}">
+                                <div class="nickname long">{$vo.nickname}</div>
+                                <div class="time">{:date('m·d H:i',$vo['complete_time'])}</div>
+                                <div class="bar"></div>
+                                <div class="area">{$vo.province_title}</div>
+                                <div class="sign"></div>
+                            </a>
+                        </volist>
+                    </div>
+                </empty>
+            </div>
+        </div>
+    </div>
+
+    <include file="Uc:tpl_activity_rule" />
+</div>
+
+<!--<div id="go-pay" class="go-pay" style="display: none;">-->
+    <!--<div class="bg"></div>-->
+    <!--<div class="dialog">-->
+        <!--<div class="coin"></div>-->
+        <!--<div class="text">-->
+            <!--帮助您的小伙伴赢得一张 价值980元 <br>-->
+            <!--2016中国婚礼行业高峰论坛门票-->
+        <!--</div>-->
+        <!--<div class="bt-box" >-->
+            <!--<button class="uc-bt uc-bt-main pay"  id="go-pay-bt" ><img class="bt-img" src="images/bt-text-pay-1-rmb.png" ></button>-->
+        <!--</div>-->
+
+    <!--</div>-->
+<!--</div>-->
+
+<!--<form id="go-pay-success" class="go-pay-success" style="display: none;">-->
+    <!--<div class="img-box">-->
+        <!--<img class="img" src="images/ticket-pay-sucess.png" >-->
+    <!--</div>-->
+    <!--<div class="textarea-box">-->
+        <!--<textarea class="textarea" id="my-remark" cols="30" rows="10" placeholder="好好学习，天天向上~" ></textarea>-->
+    <!--</div>-->
+    <!--<div class="bt-box" >-->
+        <!--<button class="uc-bt uc-bt-main summit" type="submit" ><img class="bt-img" src="images/bt-text-give-wishes.png" ></button>-->
+    <!--</div>-->
+<!--</form>-->
+<include file="Uc:tpl_modals" />
+<include file="Uc:tpl_common_foot" />
+<script>
+    window.appData={
+        state : {$state},
+        min_amount : {$min_amount},
+        is_owner : {$is_owner},
+        ticket_detail_price : '{$ticket.detail.price}',
+        share:{
+            link: window.location.href,
+        }
+    };
+
+</script>
+<script>
+    $(function(){
+        app.common.init();
+        app.ticket.init();
+        app.common.ticketProgress();
+        app.common.renderPriceNumber();
+        app.common.showButton();
+        app.common.getDiscount();
+        app.common.buyTicket();
+        app.common.showMessage();
+    })
+</script>
+</body>
+</html>

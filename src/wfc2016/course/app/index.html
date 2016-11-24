@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="html-2 html-index">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>大咖课堂选座</title>
+    <include file="Course:tpl_common_head" />
+    <include file="Common:tpl_commom_ad_style" />
+</head>
+<body class="body body-index">
+<div class="page-wrapper">
+
+    <include file="Common:tpl_wfc_all_nav" />
+
+    <div class="course-list-wrapper">
+        <div class="course-list-head" id="course-list-head">
+            <a class="item" data-span="am817" href="#am817">
+                <div class="day">8月17日</div>
+                <div class="time">09:00-12:00</div>
+            </a>
+            <a class="item" data-span="pm817" href="#pm817">
+                <div class="day">8月17日</div>
+                <div class="time">14:00-17:00</div>
+            </a>
+            <a class="item" data-span="am818" href="#am818">
+                <div class="day">8月18日</div>
+                <div class="time">09:00-12:00</div>
+            </a>
+            <a class="item" data-span="pm818" href="#pm818">
+                <div class="day">8月18日</div>
+                <div class="time">14:00-17:00</div>
+            </a>
+        </div>
+        <div class="course-list-content"  id="course-list-content">
+
+
+        </div>
+    </div>
+    <include file="Common:tpl_commom_ad" />
+</div>
+
+<include file="Course:tpl_common_foot" />
+
+<include file="Common:tpl_common_ad_script" />
+<script>
+window.appData={
+    course:{$list}
+}
+</script>
+<script>
+    $(function(){
+        app.common.init();
+        app.index.init();
+        common.initBanner();
+    })
+</script>
+</body>
+</html>

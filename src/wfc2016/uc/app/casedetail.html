@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="html-case-detail">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>{$data.name}</title>
+    <include file="Uc:tpl_common_head" />
+    <include file="Common:tpl_commom_ad_style" />
+</head>
+<body class="body body-case-detail">
+<div class="case-detail-wrapper">
+    <div class="img-wrapper">
+        <img class="img" src="{$data.cover}?imageView2/1/w/750/h/370" alt="">
+    </div>
+
+    <div class="title-wrapper">
+        <div class="name">{$data.name}</div>
+        <div class="subtitle">{$data.subtitle}</div>
+    </div>
+
+    <div class="select-wrapper">
+        <div class="item" pay-bt data-id="{$data.id}" data-type="98">
+            <div class="type">基 础 款</div>
+            <div class="line"></div>
+            <div class="price"><span class="t">¥</span><span class="em">499.</span><span class="t">00</span></div>
+            <div class="bt">立即购买</div>
+        </div>
+        <div class="item" pay-bt data-id="{$data.id}" data-type="99">
+            <div class="type">高 级 款</div>
+            <div class="line"></div>
+            <div class="price"><span class="t">¥</span><span class="em">599.</span><span class="t">00</span></div>
+            <div class="bt">立即购买</div>
+        </div>
+    </div>
+
+    <div class="des-wrapper">
+        <div class="item-box">
+            <div class="title">基础款</div>
+            <div class="content">
+                <div class="lb">价格包含</div>
+                <div class="item">
+                    <i class="haloIcon haloIcon-paper"></i>
+                    <span class="text">一本简装版方案销售谈单册</span>
+                </div>
+                <div class="item">
+                    <i class="haloIcon haloIcon-paper"></i>
+                    <span class="text">一本简装版搭建施工操作册</span>
+                </div>
+                <div class="item">
+                    <i class="haloIcon haloIcon-ai"></i>
+                    <span class="text">整套完整的视觉设计源文件</span>
+                </div>
+            </div>
+        </div>
+        <div class="item-box">
+            <div class="title">高级款</div>
+            <div class="content">
+                <div class="lb">价格包含</div>
+                <div class="item">
+                    <i class="haloIcon haloIcon-paper"></i>
+                    <span class="text">一本精装版方案销售谈单册</span>
+                </div>
+                <div class="item">
+                    <i class="haloIcon haloIcon-paper"></i>
+                    <span class="text">一本简装版搭建施工操作册</span>
+                </div>
+                <div class="item">
+                    <i class="haloIcon haloIcon-unity"></i>
+                    <span class="text">Unity案例压缩包</span>
+                </div>
+            </div>
+        </div>
+        <div class="item-box">
+            <div class="title">发<span style="margin-left: 1em;">货</span></div>
+            <div class="content">
+                <div class="item">现在下单预计8月30日发货</div>
+            </div>
+        </div>
+    </div>
+    <div class="bt-wrapper">
+        <a href="{$data.url}" class="bt-box">
+            <span class="text">
+                <span class="tg">查看详情</span>
+            </span>
+        </a>
+    </div>
+
+
+
+</div>
+<!--弹出层-->
+<div class="modal fade" id="dialogModal" tabindex="-1" >
+    <div class="modal-dialog">
+        <form class="modal-content" id="submit-address">
+            <!--<button class="close-bt" data-dismiss="modal" >-->
+                <!--<i class="haloIcon haloIcon-times"></i>-->
+            <!--</button>-->
+            <span class="haloIcon haloIcon-close"></span>
+            <div class="form-block">
+                <div class="input-box">
+                    <input type="text" id="name" placeholder="请输入姓名" class="form-input" >
+                </div>
+                <div class="input-box">
+                    <input type="number" id="phone" placeholder="请输入手机号" class="form-input" >
+                </div>
+                <div class="input-box">
+                    <select app-region-select-level3="1" data-for="address" id="province"  class="form-input" >
+                        <option value="">请选择省份</option>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <select app-region-select-level3="2" data-for="address" id="city" class="form-input" >
+                        <option value="">请选择城市</option>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <select app-region-select-level3="3" data-for="address" id="region" class="form-input" >
+                        <option value="">请选择区县</option>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <input type="text" id="address" placeholder="街道编号、名称，楼宇地址" class="form-input" >
+                </div>
+            </div>
+            <div class="bt-box">
+                <button type="submit" class="bt">提 交</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<include file="Uc:tpl_common_foot" />
+
+
+
+
+<script>
+    $(function(){
+        window.appData={
+            is_address:{$is_address},//0,1
+            share : {
+                title: '{$data.name}',
+                content: '{$data.subtitle}',
+                link: window.location.href,
+                logo: '{$data.cover}?imageView2/1/w/200/h/200'
+            }
+        };
+        app.common.init();
+        app.caseDetail.init();
+    });
+</script>
+
+</body>
+</html>

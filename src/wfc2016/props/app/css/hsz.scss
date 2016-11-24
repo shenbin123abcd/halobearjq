@@ -1,0 +1,84 @@
+@charset "utf-8";
+@import "sprite";
+@include sprites($spritesheet-sprites);
+@import "hbVariables";
+@import "hbReset";
+html,body,div{
+  margin: 0;
+  padding: 0;
+}
+body{
+  line-height: 1.5;
+  color: #333333;
+}
+
+.weui_dialog{
+  border-radius: 6px;
+  .weui_dialog_title{
+    font-size: 34px;
+  }
+  .weui_dialog_bd{
+    font-size: 30px;
+  }
+  .weui_dialog_ft{
+    font-size: 34px;
+    line-height: 84px;
+  }
+}
+.html-hsz{
+  min-height: 100%;
+  background: #fff url(../images/hsz/hsz-bg.png) 0 70px no-repeat;
+  background-size: 100% auto;
+}
+.bt-img{
+  display: inline-block;
+}
+
+.props-s-hsz-bt{
+  width: 550px;
+  height: 86px;
+  border-radius: 42px 43px 43px 42px/42px 42px 43px 43px;
+  background-color: #f54848;
+  box-shadow: 0 2px 8px rgba(13,4,9,.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  &:hover,&:active{
+    background-color: #e04b4b;
+    .props-s-hsz-bt-fukuan{
+      background-position: $props-s-hsz-bt-fukuan-active-offset-x $props-s-hsz-bt-fukuan-active-offset-y;
+    }
+  }
+}
+
+.hsz-price-wrapper{
+  text-align: center;
+  margin-top: 40px;
+  .currency-symbol{
+    font-size: 40px;
+  }
+  .num{
+    font-size: 60px;
+  }
+}
+.hsz-pay-wrapper{
+  margin-top: 140px;
+  text-align: center;
+}
+
+.hsz-title-wrapper{
+  margin-top: 637px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .line{
+    width: 70px;
+    height: 1px;
+    background-color: #666666;
+  }
+  .text{
+    font-size: 34px;
+    margin: 0 23px;
+  }
+}

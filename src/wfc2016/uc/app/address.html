@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class=" html-index html-2">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title title>填写门票快递地址</title>
+    <include file="Uc:tpl_common_head" />
+</head>
+<body class="body-index body">
+    <div class="address-container-block" id="address-container" style="display: none;">
+        <div class="block-title">
+            <div class="f-16">恭喜阁下获得</div>
+            <div class="f-16 text">2016中国婚礼行业高峰论坛门票一张</div>
+        </div>
+        <div class="block-bg">
+            个人信息
+        </div>
+        <form action="" id="address-form">
+            <div class="block-form">
+                <div class="input-box clearfix">
+                    <label for="company_name" class="form-label f-13">公司名称：</label>
+                    <input type="text" class=" form-input" id="company_name" autocomplete="off">
+                </div>
+                <div class="input-box clearfix">
+                    <label for="name" class="form-label f-13">参会人姓名：</label>
+                    <input type="text" class=" form-input" id="name" autocomplete="off" placeholder="请输入参会人姓名">
+                </div>
+                <div class="input-box clearfix">
+                    <label for="phone" class="form-label f-13">手机号码：</label>
+                    <input type="number" class=" form-input" id="phone" autocomplete="off">
+                </div>
+                <div class="input-box clearfix idnum">
+                    <label for="idnum" class="form-label f-13">身份证后四位：</label>
+                    <input type="text" class=" form-input" id="idnum" autocomplete="off">
+                </div>
+            </div>
+            <div class="block-bg">
+                物流信息
+            </div>
+            <div class="block-form">
+                <div class="input-box clearfix">
+                    <label for="province" class="form-label f-13">省份：</label>
+                    <select class="form-input province" id="province">
+                        <option value=""> </option>
+                    </select>
+                </div>
+                <div class="input-box clearfix" id="maybeNoCity">
+                    <label for="city" class="form-label f-13">城市：</label>
+                    <select class="form-input city" id="city">
+                        <option value=""> </option>
+                    </select>
+                </div>
+                <div class="input-box clearfix" id="maybeNoRegion">
+                    <label for="region" class="form-label f-13">区：</label>
+                    <select class="form-input region" id="region">
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div class="input-box clearfix">
+                    <label for="address" class="form-label f-13">详细地址：</label>
+                    <input type="text" class=" form-input" id="address" autocomplete="off">
+                </div>
+                <div class="input-box clearfix">
+                    <label for="method" class="form-label f-13">快递方式：</label>
+                    <select class="form-input method" id="method">
+                        <option value="顺丰到付">顺丰到付</option>
+                        <option value="申通到付">申通到付</option>
+                        <option value="上门自取（上海）">上门自取（上海）</option>
+                    </select>
+                </div>
+            </div>
+            <a class="form-submit" href="/uc/address#success" id="form-submit">
+                <img class="img" src="images/address-btn.png" alt="">
+            </a>
+        </form>
+    </div>
+    <div class="address-success" id="address-success" style="display:none;">
+        <div class="success-title">
+            <img src="images/address-success.png" alt="" class="img">
+        </div>
+        <div class="success-text f-13">
+            峰会组委会工作人员会在8月上旬将门票寄出，快递单号</br>
+            会以短信的形式发送到阁下的手机上，敬请留意。
+        </div>
+        <a class="btn-to-card" href="/uc/address/#cardContainer">
+            <img src="images/success-btn.png" alt="" class="img" >
+        </a>
+    </div>
+    <div class="card-container-block" id="card-container" style="display:none;">
+        <div class="card-avatar" id="avatar">
+            <div id="uploader-avatar-btn">
+                <img src="images/avatar.png" alt="" class="img">
+                <div class="text f-12">上传个人头像<i class="haloIcon haloIcon-right f-11"></i></div>
+                <div class="f-12" style="color: #fde2cf;">（头像最大5mb）</div>
+            </div>
+            <!--<div class="upload-avatar" style="display:none;" id="upload-avatar">
+                <img src="" alt="" class="avatar-img">
+            </div>-->
+        </div>
+        <form action="" id="card_form">
+            <div class="card-form" id="card-form">
+                <div class="input-group">
+                    <input class="form-control input-style" type="text" id="card_name" value="{$data.name}" disabled="disabled"  autocomplete="off">
+                    <div class="placeholder f-14" placeholderl>阁下姓名</div>
+                </div>
+                <div class="input-group">
+                    <input class="form-control input-style" type="text" id="card_company" value="{$data.company_name}" disabled="disabled" autocomplete="off">
+                    <div class="placeholder f-14" placeholderl>阁下所属公司</div>
+                </div>
+
+                <div class="input-group">
+                    <input class="form-control input-style" type="text" id="position" autocomplete="off">
+                    <div class="placeholder f-14" placeholderl>阁下职务</div>
+                </div>
+
+                <a class="card-submit" href="/uc/address/#cardInterview" id="toInterview">
+                    <img src="images/card-btn.png" alt="">
+                </a>
+            </div>
+        </form>
+    </div>
+    <div class="card-interview-block" id="card-interview" style="display:none;">
+        <div class="interview-bg-liner">
+            <div class="interview-top">
+                <img  class='bg-img' src="images/interview-bg.png" alt="">
+
+                <div class="card-desc">
+                    <div class="avatar-pic">
+                        <img  class="interview-img" id="interview-img"  alt="">
+                    </div>
+                    <div class="interview-name f-19" id="interview-name">
+
+                    </div>
+                    <div class="interview-position f-16" id="interview-position">
+
+                    </div>
+                    <div class="interview-position f-19" id="interview-company">
+
+                    </div>
+                </div>
+            </div>
+            <div class="interview-bottom">
+                <img  class='bg-img2' src="images/interview-bg2.png" alt="">
+                <div class="bottom-desc">
+                    <div class="f-11">2016中国婚礼行业高峰论坛</div>
+                    <div class="f-11 desc">幻熊科技</div>
+                </div>
+            </div>
+        </div>
+        <div class="interview-control-btn">
+            <div class="button-group clearfix">
+                <a href="#cardContainer" class="btn-cancel" id="interview-cancel">
+                    <img src="images/cancel.png" alt="" class="cancel">
+                </a>
+                <div class="btn-ok" id="interview-ok">
+                    <img src="images/address-btn.png" alt="" class="ok">
+                </div>
+            </div>
+            <div class="f-11  clearfix text">胸卡信息一旦提交便开始制作，请确保无误后再提交</div>
+        </div>
+
+    </div>
+    <div class="card-interview-success address-success" id="card-interview-success" style="display: none;">
+        <div class="success-title">
+            <img src="images/address-success.png" alt="" class="img">
+        </div>
+        <div class="success-text f-13">
+            峰会当天请携带好门票或身份证去指定签到处</br>
+            换取您的参会胸卡
+        </div>
+        <a class="btn-to-card" href="/course">
+            <img src="images/choose-seat.png" alt="" class="img" style="width:146px;">
+        </a>
+    </div>
+<include file="Uc:tpl_common_foot" />
+    <script>
+        var config = {$config};
+        $(function(){
+            app.address.init();
+            app.common.init();
+            //app.service.loading.show();
+        })
+    </script>
+</body>
+</html>

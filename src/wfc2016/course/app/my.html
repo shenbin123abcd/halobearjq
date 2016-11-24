@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="html-1 html-my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>课程选座</title>
+    <include file="Course:tpl_common_head" />
+</head>
+<body class="body body-my">
+    <div class="page-wrapper">
+        <div class="my-course-info-wrapper" >
+            <div class="img-box">
+                <img class="img" src="{$user.headimgurl}" alt="">
+            </div>
+            <div class="name-box">
+                {$user.nickname}
+            </div>
+            <div class="title-box">
+                我的2016中国婚礼行业高峰论坛课程选座
+            </div>
+            <div class="label-box">
+                <div class="line"></div>
+                <div class="text">预约课程</div>
+
+                <div class="line"></div>
+            </div>
+            <div class="course-list-box" id="course-list-box">
+                <volist name="list" id="vo">
+                    <div class="item">
+                        <empty name="vo.guest">
+                            <div class="avatar" data-guest-id="{$vo.course.number}"></div>
+                            <div class="headline">《{$vo.course.company}》</div>
+                            <div class="time">{$vo.course.time}</div>
+                            <div class="hall">{$vo.course.meetingplace} {$vo.seat_no}</div>
+                        <else/>
+                            <div class="avatar" data-guest-id="{$vo.guest.number}"></div>
+                            <div class="title">{$vo.guest.title} {$vo.guest.position}</div>
+                            <div class="area">{$vo.guest.city} | {$vo.guest.company_name}</div>
+                            <div class="headline">《{$vo.course.headline}》</div>
+                            <div class="time">{$vo.course.date} {$vo.course.start_time}-{$vo.course.start_time}</div>
+                            <div class="hall">分会场{$vo.course.meetingplace} {$vo.seat_no}</div>
+                        </empty>
+                            
+
+                    </div>
+                </volist>
+            </div>
+
+            <eq name="is_owner" value="1">
+                <div class="is_owner-bt-box bt-box">
+                    <a href="/course" class="uc-bt uc-bt-main"   ><img class="bt-img" src="images/bt-text-other-course.png" ></a>
+                </div>
+                <div class="msg-box">8月1日组委会将开启第二轮课程选座，敬请留意哦！</div>
+            </eq>
+            <eq name="is_owner" value="0">
+                <div class="not_owner-bt-box bt-box">
+                    <a  href="/course" class="uc-bt uc-bt-main"   ><img class="bt-img" src="images/bt-text-select-seat.png" ></a>
+                </div>
+            </eq>
+        </div>
+    </div>
+
+
+<include file="Course:tpl_common_foot" />
+
+<script>
+    window.appData={
+
+    };
+</script>
+<script>
+    $(function(){
+        app.common.init();
+        app.my.init();
+    })
+</script>
+</body>
+</html>

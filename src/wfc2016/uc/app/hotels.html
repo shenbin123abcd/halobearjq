@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="html-3 html-meal">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=750, user-scalable=no">
+    <title>酒店住宿</title>
+    <include file="Uc:tpl_common_head" />
+    <include file="Common:tpl_commom_ad_style" />
+</head>
+<body class="body body-index">
+<div id="proload-css-img"></div>
+<include file="Common:tpl_wfc_all_nav" />
+<div class="page-wrapper-entertainment">
+
+    <div class="entertainment-card-wrapper">
+        <i class="entertainment-type-ico hotels"></i>
+        <div class="title-box">
+            <div class="title">2016中国婚礼行业高峰论坛</div>
+            <eq name="hotels.type" value="6">
+                <div class="type">快捷酒店四晚拼房通票</div>
+            </eq>
+            <eq name="hotels.type" value="9">
+                <div class="type">四星酒店四晚拼房通票</div>
+            </eq>
+            <eq name="hotels.type" value="8">
+                <div class="type">五星酒店四拼房晚通票</div>
+            </eq>
+            <eq name="hotels.type" value="10">
+                <div class="type">快捷酒店四晚单间通票</div>
+            </eq>
+            <eq name="hotels.type" value="11">
+                <div class="type">四星酒店四晚单间通票</div>
+            </eq>
+        </div>
+        <div class="gap-box"></div>
+
+        <div class="content-box">
+            <eq name="hotels.type" value="6">
+                <div class="type-img-box hotel-fast"></div>
+            </eq>
+            <eq name="hotels.type" value="9">
+                <div class="type-img-box hotel-4-star"></div>
+            </eq>
+            <eq name="hotels.type" value="8">
+                <div class="type-img-box hotel-5-star"></div>
+            </eq>
+            <eq name="hotels.type" value="10">
+                <div class="type-img-box hotel-fast"></div>
+            </eq>
+            <eq name="hotels.type" value="11">
+                <div class="type-img-box hotel-4-star"></div>
+            </eq>
+
+
+            <div class="info-box">
+                <div class="info-item">
+                    <div class="title">来宾姓名</div>
+                    <div class="content">
+                        <div class="name-gender">
+                            <span class="name">{$hotels.username}</span>
+                            <eq name="hotels.hotels_sex" value="1">
+                                <span class="gender male"></span>
+                            </eq>
+                            <eq name="hotels.hotels_sex" value="2">
+                                <span class="gender female"></span>
+                            </eq>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="title">手机号码</div>
+                    <div class="content">
+                        {$hotels.phone}
+
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="title">拼房备注</div>
+                    <div class="content">
+                        {$hotels.hotels_remark}
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="title">入住时间</div>
+                    <div class="content">
+                        08月15日-18日
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+<include file="Uc:tpl_common_foot" />
+
+<script>
+    window.appData={
+
+    };
+
+
+</script>
+<script>
+    $(function(){
+        app.common.init();
+    })
+</script>
+</body>
+</html>

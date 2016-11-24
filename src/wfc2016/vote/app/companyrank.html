@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="html-company-rank">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>全国参赛公司总票数排名</title>
+    <include file="Vote:tpl_common_head" />
+</head>
+<body class="body-company-rank">
+
+<div class="company-rank-page">
+    <div class="company-rank-header" id="area-nav">
+        <a href="/vote/companyrank" class="item" id="area-all">
+            <span class="text">全国赛区</span>
+        </a>
+        <volist name="area" id="vo">
+            <a href="/vote/companyrank?aid={$key}" class="item" id="area-{$key}">
+                <span class="text">{$vo.title}赛区</span>
+            </a>
+        </volist>
+    </div>
+
+    <div class="company-rank-list" >
+        <div class="company-rank-pic">
+            <img src="images/rank-pic.png" alt="" class="pic">
+            <div class="pic-left">
+                <img src="images/rank-left-pic.png" alt="" class="pic-wrapper">
+                <img src="" alt="" class="left-pic-text" id="left-pic-text">
+            </div>
+            <div class="pic-right">
+                <div class="img-box">
+                    <img src="images/rank-bg.png" alt="" class="img-wrapper">
+                    <div class="img-inner">
+                        <img src="" alt="" id="inner-company-logo">
+                    </div>
+                </div>
+                <div class="pic-text">
+                    <div class="company f-13" id="pic-text-company"></div>
+                    <div class="tickets f-11" id="pic-text-ticket"></div>
+                </div>
+            </div>
+        </div>
+        <div class="list-3" id="company-rank-list">
+            <volist name="list" id="vo">
+                <if condition="$i == 1">
+                    <div id="first-company-name" style="display: none;">{$vo.name}</div>
+                </if>
+                <a class="item" href="/vote/companydetail?id={$vo.id}">
+                    <div class="num-box">{$i}</div>
+                    <div class="img-box">
+                        <div class="img-wrapper">
+                            <if condition="$i lt 9">
+                                <img src="{$vo.logo}"
+                                     class="img"  >
+                                <else/>
+                                <img data-original="{$vo.logo}" src="data:image/gif;base64,R0lGODlhAQABAIAAAPDw8AAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+                                     class="img lazy"  >
+                            </if>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <div class="name">{$vo.name}</div>
+                        <div class="area">{$vo.province}<span class="padding">|</span>{$vo.city}</div>
+                    </div>
+                    <div class="point-box">
+                        <span class="f-15 num-text-top">{$vo.num}</span>票
+                    </div>
+                </a>
+            </volist>
+        </div>
+    </div>
+</div>
+
+
+<include file="Vote:tpl_float_bt" />
+<include file="Vote:tpl_common_foot" />
+
+<script>
+    (function () {
+
+
+        window.appDataAreaJson={
+        <volist name="area" id="vo">
+            '{$key}':'{$vo.title}',
+        </volist>
+        };
+
+
+        window.appData={
+            share : {
+                content: '「'+$("#first-company-name").text()+'」'+'暂居'+window.appDataAreaJson[hb.location.url('?aid')]+'赛区第一名，中国婚礼策划最高奖—2016金熊奖！',
+                link: window.location.href,
+            }
+        };
+
+
+//        console.log(window.appData.share.link,window.appData.share.content);
+    }());
+
+
+</script>
+<script>
+    $(function(){
+        "use strict";
+        app.common.init();
+        app.companyRank.init();
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="cardsuccess">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title title>峰会门票快递地址</title>
+    <include file="Uc:tpl_common_head" />
+</head>
+<body class="cardsuccess">
+    <div class="cardsuccess-block">
+        <div class="img-block">
+            <img src="images/ticket-sample.png" alt="">
+        </div>
+        <div class="address-line">
+            <div class="border left"></div>
+            <span class="text">收货地址</span>
+            <div class="border right"></div>
+        </div>
+        <div class="desc-content">
+            <div class="desc-content-item">
+                <div class="item f-14">
+                    <span class="item-name">{$data.name}</span>
+                    <span class="item-phone">{$data.phone}</span>
+
+                </div>
+                <div class="item f-12">
+                    {$data.province_title}{$data.city_title}{$data.region_title}{$data.address}
+                </div>
+            </div>
+            <notempty name="data.express_num">
+                <div class="desc-content-item">
+                    <div class="item f-14">
+                        <span class="item-name">快递信息</span>
+                    </div>
+                    <div class="item f-12">{$data.method}&#12288;{$data.express_num}</div>
+                </div>
+            </notempty>
+        </div>
+    </div>
+
+
+<include file="Uc:tpl_common_foot" />
+<script>
+    $(function(){
+        app.common.init();
+    })
+</script>
+</body>
+</html>

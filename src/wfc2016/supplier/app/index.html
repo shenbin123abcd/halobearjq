@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="html-index">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>2016中国最佳婚礼服务商评选</title>
+    <include file="Supplier:tpl_common_head" />
+    <include file="Common:tpl_commom_ad_style" />
+</head>
+<body class="body-index">
+<include file="Common:tpl_wfc_all_nav" />
+<div class="top-countdown clearfix">
+    <div class="animate-box">
+        <div class="meng" data-count="{$count}">
+            <div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div>
+        </div>
+        <span class="text f-12">次访问</span>
+    </div>
+    <div class="join-btn-box">
+        <a class="btn join f-12" href="/vote/share">参赛通道</a>
+    </div>
+</div>
+<div class="index-slug-wrapper">
+    <a href="/supplier/apply">
+        <img class="img" src="images/slug.png">
+    </a>
+</div>
+<div class="index-cat-wrapper" id="index-cat-wrapper">
+    <div class="item active" data-cid=""  data-cate="全部分类">
+        <div class="item-box"  >
+            <div class="supplier-ico-box">
+                <span class="supplier-ico supplier-ico-four-square"></span>
+            </div>
+            <div class="text">全部分类</div>
+        </div>
+    </div>
+
+    <div class="item" data-cid="1" data-cate="品牌加盟" >
+        <div class="item-box">
+            <div class="supplier-ico-box">
+                <span class="supplier-ico supplier-ico-statistics"></span>
+            </div>
+            <div class="text">品牌加盟</div>
+        </div>
+    </div>
+    <div class="item" data-cid="2" data-cate="婚庆道具">
+        <div class="item-box"  >
+            <div class="supplier-ico-box">
+                <span class="supplier-ico supplier-ico-pillar"></span>
+            </div>
+            <div class="text">婚庆道具</div>
+        </div>
+    </div>
+    <div class="item" data-cid="3" data-cate="舞美设备">
+        <div class="item-box"  >
+
+            <div class="supplier-ico-box">
+                <span class="supplier-ico supplier-ico-audio"></span>
+            </div>
+            <div class="text">舞美设备</div>
+        </div>
+    </div>
+    <div class="item" data-cid="4" data-cate="软件工具">
+        <div class="item-box"  >
+            <div class="supplier-ico-box">
+                <span class="supplier-ico supplier-ico-interface"></span>
+            </div>
+            <div class="text">软件工具</div>
+        </div>
+    </div>
+    <div class="item" data-cid="5" data-cate="现场婚品">
+        <div class="item-box"  >
+            <div class="supplier-ico-box">
+                <span class="supplier-ico supplier-ico-gift"></span>
+            </div>
+            <div class="text">现场婚品</div>
+        </div>
+    </div>
+    <div class="item" data-cid="6" data-cate="婚礼平台">
+        <div class="item-box"  >
+            <div class="supplier-ico-box">
+                <span class="supplier-ico supplier-ico-screen"></span>
+            </div>
+            <div class="text">婚礼平台</div>
+        </div>
+    </div>
+    <div class="item" data-cid="7" data-cate="培训课程">
+        <div class="item-box"  >
+            <div class="supplier-ico-box">
+                <span class="supplier-ico supplier-ico-notebook"></span>
+            </div>
+            <div class="text">培训课程</div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="rank-list">
+    <div class="rank-list-title f-11"><span class="rank-list-line"></span>&nbsp;&nbsp;&nbsp;<span id="index-cat">全部分类</span> 共<span id="total">{$data.total}</span>个&nbsp;&nbsp;&nbsp;<span class="rank-list-line"></span></div>
+
+    <div id="data-list">
+        <volist name="data.list" id="vo">
+            <if condition="$i lt 21">
+                <a href="/supplier/detail?id={$vo.id}" class="list-item clearfix">
+                    <div class="item-pic">
+                        <div  class="img"><img src="images/sidai.png">
+                                <div class="rank-number">No.{$i}</div>
+                        </div>
+                        <span class="avatar"><img src="{$vo.logo_url}"></span>
+                        <span onclick="event.preventDefault()" class="vote-btn f-12" vote-bt data-id="{$vo.id}" data-company-name="{$vo.title}" >投票</span>
+                    </div>
+                    <div class="item-desc">
+                        <div class="desc-top clearfix">
+                            <div href="/supplier/detail?id={$vo.id}" class="f-14 title"><div>{$vo.title}</div></div>
+                            <span class="f-14 ticket"><span vote-num case="case-{$vo.id}"  class="f-16 num">{$vo.num}</span>票</span>
+                        </div>
+                        <div class="desc-rank f-14">
+                            总排名第<span class="num f-16">{$vo.sort}</span>名
+                        </div>
+                        <div class="desc-text f-12">
+                            {$vo.remark}
+                        </div>
+                    </div>
+                </a>
+            </if>
+        </volist>
+    </div>
+
+    <div class="rank-list-more f-11" id="show-more-wrapper" ><span class="emp" id="show-more">查看更多供应商 <span class="gt">&gt;</span><span class="gt">&gt;</span></span></div>
+</div>
+<include file="Supplier:tpl_foot_qrcode" />
+
+<include file="Supplier:tpl_float_bt" />
+<include file="Supplier:tpl_common_foot" />
+<include file="Common:tpl_common_ad_script" />
+<script>
+    window.appData={
+        code:{$code}
+    };
+</script>
+<script>
+    $(function(){
+        "use strict";
+        app.common.init();
+        app.index.init();
+        app.vote.init();
+        common.initBanner();
+    })
+</script>
+</body>
+</html>

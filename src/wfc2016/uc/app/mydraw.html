@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="mydraw html-index">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title title>我的卡券</title>
+    <include file="Uc:tpl_common_head" />
+</head>
+<body class="body-index">
+<div class="mydraw-block" id="myDraw" style="display:none;">
+    <div class="draw-title">
+        <span class="liner-start line"></span>我的卡券<span class="liner-end line"></span>
+    </div>
+    <div class="draw-list" id="draw-list">
+        <volist name="list" id="vo">
+            <a class="item" data-id="{$vo.record_id}" href="#ticketDetail{$vo.record_id}">
+                <div class="item-avatar">
+                    <img src="images/coupon/img{$vo.record_id}.png" alt="">
+                </div>
+                <div class="item-desc">
+                    <div>2016中国婚礼行业高峰论坛</div>
+                    <div text>{$vo.prize}</div>
+                </div>
+            </a>
+        </volist>
+    </div>
+</div>
+<div class="ticket-block" id="ticketDetail" style="display:none;">
+    <volist name="list" id="voo">
+        <div class="ticketDetail-item" id="ticketDetail{$voo.record_id}" style="display:none;">
+            <div class="avatar-block">
+                <div class="avatar-pic">
+                    <img src="images/coupon/img{$voo.record_id}.png" alt="">
+                </div>
+            </div>
+            <div class="desc-content">
+                <div class="content-title">
+                    <div>2016中国婚礼行业高峰论坛</div>
+                    <div>{$voo.prize}</div>
+                    <div class="text">仅限中奖者本人使用</div>
+                </div>
+                <div class="content-desc">
+                    <div class="desc-ticket">
+                        <div class="ticket-content">
+                            <div class="content">内容</div>
+                            <div class="content-info">{$voo.prize}</div>
+                        </div>
+                        <div class="ticket-num">
+                            <div class="num">张数</div>
+                            <div class="num-info">1</div>
+                        </div>
+                    </div>
+                    <div class="content-btn">
+                        <div class="text">卡券编号：{$voo.code}</div>
+                        <div class="btn-join btn" id="btn-join" data-toggle="modal"
+                             data-target="#myModal">
+                            立即使用
+                        </div>
+                        <div class="text-time">截止日期：2016-08-01</div>
+                    </div>
+                    <div class="end-circle">
+                        <img class="left" src="images/mydraw-circle.png" alt="">
+                        <img class="right" src="images/mydraw-circle.png" alt="">
+                    </div>
+                </div>
+                <a class="see-detail clearfix"  data-infoid="{$voo.record_id}" a-click>
+                    <div style="float:left;">详细说明</div>
+                    <div style="float:right"> <i class="haloIcon haloIcon-right f-11"></i> </div>
+                </a>
+
+            </div>
+        </div>
+    </volist>
+</div>
+<div class="desc-detail" id="toTicket" style="display:none;">
+    <div class="detail-block">
+        <div class="detail-title clearfix">
+            <div class="title-left">详细说明</div>
+            <!--<a class="title-right" href="#ticketDetail">返回</a>-->
+        </div>
+        <div content>
+            <div>
+                <div class="detail-content f-10">
+                    针对机票/火车票/住宿：
+                </div>
+                <ul class="detail-list">
+                    <li class="f-10">1. 单程机票/火车票里程范围仅限国内出发地-南京</li>
+                    <li class="f-10">2. 机票与火车票仅限获奖者本人使用，不得转让</li>
+                    <li class="f-10">3. 单程机票/火车票使用截止日期为2016年8月1日</li>
+                    <li class="f-10">4. 因用户自身原因包括但不限于预定成功以后误机，改 签等行为，不退不补</li>
+                    <li class="f-10">5. 住宿为官方指定快捷酒店同性拼房，不支持更改房间或升级酒店</li>
+                    <li class="f-10">6. 如出现违规行为（包括不限于作弊，恶意套现等）,幻熊将取消资格，并有权撤销违规中奖行为，关闭其关联的微信账号并撤销相对应的门票资格，将不得再次预定峰会门票以及其他幻熊相关产品，必要时追究法律责任。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="desc-detail" id="toPay" style="display:none;">
+    <div class="detail-block">
+        <div class="detail-title clearfix">
+            <div class="title-left">详细说明</div>
+            <!--<a class="title-right" href="#ticketDetail">返回</a>-->
+        </div>
+        <div content>
+            <div>
+                <div class="detail-content f-10">
+                    针对代金券：
+                </div>
+                <ul class="detail-list">
+                    <li class="f-10">1. 此券使用有效期为2016年8月16日-8月18日，仅适用与峰会现场幻熊科技官方展位，可直接抵用现金，每张订单只限使用一次优惠券</li>
+                    <li class="f-10"><span style="opacity:0">3. </span>单笔订单满200元，可使用40元代金券</li>
+                    <li class="f-10"><span style="opacity:0">3. </span>单笔订单满500元，可使用100元代金券</li>
+                    <li class="f-10"><span style="opacity:0">3. </span>单笔订单满1000元，可使用200元代金券</li>
+                    <li class="f-10"><span style="opacity:0">3. </span>单笔订单满3000元，可使用600元代金券</li>
+                    <li class="f-10"><span style="opacity:0">3. </span>单笔订单满5000元，可使用1000元代金券</li>
+                    <li class="f-10">3. 此券不可直接兑换现金，亦不可与幻熊其他官方优惠同时使用</li>
+                    <li class="f-10">4. 该代金券不得转赠他人，仅限拥有者本人使用</li>
+                    <li class="f-10">5. 如出现违规行为（包括不限于作弊，恶意套现等），幻熊将取消资格，并有权撤销违规中奖行为，关闭其关联的微信账号并撤销相对应的门票资格，将不得再次预定峰会门票以及其他幻熊相关产品，必要时追究法律责任</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body" style="text-align: center;">
+                    <img src="images/mydraw_weixin.png" alt="" style="width:100%;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<include file="Uc:tpl_common_foot" />
+    <script>
+        $(function(){
+            app.mydraw.init();
+            app.wechat.init();
+        })
+    </script>
+</body>
+</html>

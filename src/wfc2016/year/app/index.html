@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="html-index-year">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>年度人物</title>
+    <include file="Year:tpl_common_head" />
+    <include file="Common:tpl_commom_ad_style" />
+</head>
+<body class="body-index">
+<div class="body-index-inner">
+    <include file="Common:tpl_wfc_all_nav" />
+    <section class="center slider slider-block" id="slider-block"></section>
+</div>
+
+
+
+    <div class="comment-block clearfix">
+        <div class="comment-box comment-box-list" id="comment-box-list"></div>
+        <div id="avatar-box-wrapper" class="avatar-box-wrapper">
+            <div class="avatar-box clearfix" id="avatar-box" style="display: none;"></div>
+            <div class="avatar-item-wrapper">
+                <div class="avatar-item-circle"></div>
+                <div class="avatar-item-height f-9" style="text-align: center;">
+                    <span class="comment-num"><span id="current-page">1</span> / <span id="total-page"></span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--弹出层-->
+    <div class="modal fade" id="dialogModal" tabindex="-1" role="dialog"
+     aria-labelledby="dialogModal-body" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="comment-box" class="comment-box" style="display: none;">
+                <div class="modal-header comment-header">
+                    <div id="modal-close" style="position:absolute;top:15px;right:15px;color: #999999;z-index:3;"><span class="haloIcon haloIcon-close"></span></div>
+                    <img src="images/bg1.png" alt="" class="bg-pic" bg-pic>
+                    <h4 class="modal-title f-16 comment-title" id="dialogModal-body">评价框</h4>
+                    <div class="f-9" style="color:#999999;margin-top: 5px;" text-length><span class="num-length" num>最多只能输入15</span>个字符</div>
+                </div>
+                <div class="modal-body">
+                    <textarea placeholder="给您支持的老师留个言吧~" class="f-13 comment-input" id="comment-text" rows="3"></textarea>
+                    <div class="f-14" id="send-comment">
+                        <div class="btn send-btn" id="send-comment-btn">立即提交</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="prove" style="display: none;">
+                <div class="modal-body">
+                    <div class="prove-body">
+                        <div id="step1" style="display: none;">
+                            <div class="prove-img"><img src="images/prove-pic.png" alt=""></div>
+                            <div class="prove-desc">
+                                <h2 class="f-16 title">年度人物评选说明</h2>
+                                <div class="f-12 text">
+                                    为保证中国婚礼行业年度人物评选客观公正性,</br>
+                                    评选使用实名制方式，仅对2016峰会持票的</br>
+                                    6000位中国婚礼人开放。</br>
+                                </div>
+                                <div class="f-15 prove-info-btn" id="prove-info-btn">验证参会实名信息</div>
+                            </div>
+                        </div>
+                        <div id="step2" style="display:none;">
+                            <div class="prove2-img"><img src="images/prove-pic2.png" alt=""></div>
+                            <div modal-dialog-close style="position:absolute;top:0;right:15px;color: #999999;z-index:3;"><span class="haloIcon haloIcon-close"></span></div>
+                            <div class="warn-title f-16" style="color:#333333;">非常抱歉，您的微信号验证失败</div>
+                            <div class="f-12" style="color:#666666;">请使用手机号码验证</div>
+                            <form class="form-block">
+                                <div class="input-box clearfix">
+                                    <input type="text" placeholder="请输入门票序列号" class="form-input" id="idnum" autocomplete="off">
+                                </div>
+                                <div class="input-box clearfix">
+                                    <input type="text" placeholder="请输入手机号" class="form-input" id="phone" autocomplete="off">
+                                </div>
+                                <div class="input-box clearfix">
+                                    <input type="text" placeholder="请输入验证码" class="form-input" id="code" autocomplete="off">
+                                    <button class="message-block f-11 can-click" id="send-message-btn">
+                                        发送验证码
+                                    </button>
+                                </div>
+                            </form>
+                            <div class="f-15 prove-info-btn" id="send-info-btn">提 交</div>
+                        </div>
+                        <div id="prove-error" style="display:none;">
+                            <div class="prove2-img"><img src="images/prove-pic2.png" alt=""></div>
+                            <div class="prove-desc">
+                                <div class="title f-16">非常抱歉，您的手机号码验证失败</div>
+                                <div class="text f-12">已购买门票者请联系微信ID：RealXiaoU</div>
+                            </div>
+                            <div class="f-15 prove-info-btn" id="buy-ticket-btn">前去购买门票</div>
+                        </div>
+                        <div id="prove-success" style="display:none;">
+                            <div class="prove-img"><img src="images/prove-success.png" alt=""></div>
+                            <div class="f-16" style="color:#333333;margin-bottom: 40px;text-align: center;font-weight: bold;">恭喜您，验证成功！</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div></div>
+    <include file="Year:tpl_common_foot" />
+    <include file="Common:tpl_common_ad_script" />
+<script>
+
+    window.is_ticket={$is_ticket};
+    //window.is_ticket=0;
+    window.user_list={$list};
+    window.nickname='{$nickname}';
+    window.appData={
+        code:{$code},
+        share : {
+            title: '2016中国婚礼行业年度人物',
+            content: '「致敬行业驱动力」六千位中国婚礼人的实名制选票，2016中国婚礼行业年度人物评选！',
+            link: 'http://wfc.halobear.com/year',
+            logo: 'http://7ktq5x.com1.z0.glb.clouddn.com/Wfc2016/year/images/wechat-share.png',
+        }
+    };
+    $(function(){
+        "use strict";
+        app.index.init();
+        //app.common.init();
+        //console.log(window.appData.share);
+
+    })
+</script>
+</body>
+</html>

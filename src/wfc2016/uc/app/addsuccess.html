@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class=" html-index html-2">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title title>胸卡预览</title>
+    <include file="Uc:tpl_common_head" />
+</head>
+<body class="body-index body">
+    <div class="card-interview-block success" id="card-interview">
+    <div class="interview-bg-liner">
+        <div class="interview-top">
+            <img  class='bg-img' src="images/interview-bg.png" alt="">
+
+            <div class="card-desc">
+                <div class="avatar-pic success">
+                    <img  class="interview-img"  src="{$data.head_img}" alt="">
+                </div>
+                <div class="interview-name f-19" id="interview-name">
+                    {$data.name}
+                </div>
+                <div class="interview-position f-16" id="interview-position">
+                    {$data.position}
+                </div>
+                <div class="interview-position f-19" id="interview-company">
+                    {$data.company_name}
+                </div>
+            </div>
+        </div>
+        <div class="interview-bottom success">
+            <img  class='bg-img2' src="images/interview-bg2.png" alt="">
+            <div class="bottom-desc">
+                <div class="f-11">2016中国婚礼行业高峰论坛</div>
+                <div class="f-11 desc">幻熊科技</div>
+            </div>
+        </div>
+    </div>
+</div>
+    <include file="Uc:tpl_common_foot" />
+    <script>
+        $(function(){
+            app.common.init();
+        })
+    </script>
+</body>
+</html>

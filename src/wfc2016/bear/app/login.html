@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="html-login">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>金熊奖评分系统</title>
+    <include file="Bear:tpl_common_head" />
+</head>
+<body class="body-login">
+
+<form class="user-form" id="login-form">
+    <div class="group">
+        <input type="number" id="phone" class="user-control" placeholder="请输入手机号">
+    </div>
+    <div class="group">
+        <input type="password" id="pwd" class="user-control" placeholder="请输入密码">
+    </div>
+    <div class="bt-wrapper">
+        <button class="user-bt" type="submit">登 录</button>
+    </div>
+
+</form>
+
+
+<include file="Bear:tpl_common_foot" />
+<literal>
+    <script>
+        $(function(){
+            window.appData={
+
+            };
+            app.common.init();
+            app.login.init();
+        });
+    </script>
+</literal>
+</body>
+</html>

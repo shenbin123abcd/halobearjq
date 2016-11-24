@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="html-detail">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>服务商评选</title>
+    <include file="Supplier:tpl_common_head" />
+    <include file="Common:tpl_commom_ad_style" />
+</head>
+<body class="body-detail">
+<include file="Common:tpl_wfc_all_nav" />
+<div class="page-detail">
+    <div class="detail-title">
+        <div class="title-img"><img src="{$data.logo_url}" alt=""></div>
+        <div class="title-company f-16">{$data.title}</div>
+        <div class="title-icon">
+            <div class="item">
+                <!--<i class="icon pic"><img src="images/detail-1.png" alt=""></i>-->
+                <!--<i class="supplier-ico supplier-ico-notebook-666"></i>-->
+                <!--<i class="haloIcon haloIcon-notebook"></i>-->
+                <eq name="data.cate" value="1">
+                    <i class="haloIcon haloIcon-statistics"></i>
+                </eq>
+                <eq name="data.cate" value="2">
+                    <i class="haloIcon haloIcon-pillar"></i>
+                </eq>
+                <eq name="data.cate" value="3">
+                    <i class="haloIcon haloIcon-audio"></i>
+                </eq>
+                <eq name="data.cate" value="4">
+                    <i class="haloIcon haloIcon-interface"></i>
+                </eq>
+                <eq name="data.cate" value="5">
+                    <i class="haloIcon haloIcon-gift"></i>
+                </eq>
+                <eq name="data.cate" value="6">
+                    <i class="haloIcon haloIcon-screen"></i>
+                </eq>
+                <eq name="data.cate" value="7">
+                    <i class="haloIcon haloIcon-notebook"></i>
+                </eq>
+                <span class="text">{$data.cate_title}</span>
+            </div>
+            <div class="item">
+                <i class="haloIcon haloIcon-address-2"></i>
+                <span class="text">{$data.province_name}{$data.city_name}</span>
+            </div>
+        </div>
+        <div class="title-tickets color-pink f-13"><span vote-num case="case-{$data.id}">{$data.num}</span><span>票</span></span></div>
+        <div class="title-list color-pink f-13">{$data.cate_title}类第{$data.cate_rank}名<span class="padding">|</span>总排名第{$data.sort}名</div>
+    </div>
+    <div class="detail-desc">
+        <notempty name="data.name">
+            <div class="item"><i class="haloIcon haloIcon-name f-17"></i><span class="f-13">{$data.name}</span></div>
+        </notempty>
+        <notempty name="data.wechat">
+            <div class="item"><i class="haloIcon haloIcon-wechat f-17"></i><span id="wechat-value" class="f-13">{$data.wechat}</span></div>
+        </notempty>
+        <notempty name="data.contact">
+            <div class="item"><i class="haloIcon haloIcon-phone f-17"></i><span class="f-13">{$data.contact}</span></div>
+        </notempty>
+        <notempty name="data.address">
+            <div class="item"><i class="haloIcon haloIcon-address f-17"></i><span class="f-13">{$data.address}</span></div>
+        </notempty>
+    </div>
+    <div class="detail-company">
+        <div class="company-desc f-17">—&nbsp;&nbsp;公司简介&nbsp;&nbsp;—</div>
+        <div class="company-text f-13">
+            <div class="text" id="content-info">
+                <div class="loading-box" ><i class="haloIcon haloIcon-spin haloIcon-spinner f-20"></i></div>
+            </div>
+            <div class="seemore f-13" id="seemore">
+                <div class="more">查看更多<i class="haloIcon haloIcon-select-arrowdown"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="detail-pic">
+        <div class="company-desc f-17">—&nbsp;&nbsp;公司产品&nbsp;&nbsp;—</div>
+        <div class="company-pic f-13">
+            <volist name="data.images" id="vo">
+                <div class="item clearfix">
+                    <img src="{$vo}" >
+                </div>
+            </volist>
+        </div>
+        <neq name="data.video" value="">
+            <div class="detail-content-video" id="video-box" data-video="{$data.video}" style="display: none;" >
+                <iframe class="video"   frameborder=0 allowfullscreen src="" ></iframe>
+            </div>
+        </neq>
+    </div>
+
+    <div class="fixed-box clearfix">
+        <button type="button"  vote-bt data-id="{$data.id}" data-company-name="{$data.title}"  class="vote-block f-17">立即投票</button>
+        <div class="contact-block">
+            <a class="wrapper" href="tel:{$data.contact}"><div class="item item-phone"><i class="haloIcon haloIcon-phone f-25"></i></div></a>
+            <div id="weixin-modal" class="wrapper"><div class="item item-weixin"><i class="haloIcon haloIcon-wechat f-25"></i></div></div>
+        </div>
+    </div>
+</div>
+
+<!--模态框-->
+<div class="modal fade" id="weixin" tabindex="-1" role="dialog"
+     aria-labelledby="weixinModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body padding">
+                <div class="modal-body-content ">
+                    <div class="pic-box clearfix">
+                        <div class="img img1"><img id="wechat_image_url" src="{$data.wechat_image_url}" alt=""></div>
+                        <div class="img img2"><img src="images/img2.png" alt=""></div>
+                    </div>
+                    <div class="text-box">
+                        <div class="f-14">长按图片识别二维码</div>
+                        <div class="f-14">添加 <span class="color">{$data.title}</span> 微信号</div>
+                    </div>
+                </div>
+                <div class="close-btn">
+                    <span class="close-icon" type="button" data-dismiss="modal"><i class="haloIcon haloIcon-modal-close f-35"></i><span class="line"></span></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<include file="Supplier:tpl_foot_qrcode" />
+<include file="Vote:tpl_float_bt" />
+<include file="Supplier:tpl_common_foot" />
+<div id="remark" style="display: none;">{$data.remark}</div>
+<script>
+    window.appData={
+        code:{$code},
+        share : {
+            content: '「'+'{$data.title}'+'」'+'—2016中国婚礼行业最佳服务商候选品牌企业',
+            link: 'http://wfc.halobear.com/supplier/detail?id={:I("id")}',
+            logo: '{$data.logo_url}'
+        }
+    };
+</script>
+<script>
+    $(function(){
+        app.common.init();
+        app.detail.init();
+        app.vote.init();
+    })
+</script>
+</body>
+</html>

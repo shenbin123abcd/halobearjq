@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class=" html-index makecard">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title title>填写门票快递地址</title>
+    <include file="Uc:tpl_common_head" />
+</head>
+<body class="body-index makecard-body">
+    <div class="makecard-block">
+        <div class="block-title">
+            <div class="border"></div>
+            <span class="text">线下渠道门票绑定</span>
+            <div class="border"></div>
+        </div>
+        <div class="block-content">
+            <div class="title f-16">
+                欢迎阁下莅临</br>2016中国婚礼行业高峰论坛
+            </div>
+            <form class="form-content">
+                <div class="input-box clearfix">
+                    <label for='phone' class="form-label f-13">手机号码：</label>
+                    <input type="text" placeholder="与门票登记的手机保持一致" class="form-input" id="phone" autocomplete="off">
+                </div>
+                <div class="input-box clearfix">
+                    <label for='idnum' class="form-label f-13">门票序号：</label>
+                    <input type="text" placeholder="请输入门票序号" class="form-input" id="idnum" autocomplete="off">
+                </div>
+                <div class="input-block">
+                    <label for='code' class="form-label f-13 code">短信识别码：</label>
+                    <input type="text" class="form-input code" id="code" autocomplete="off">
+                    <button class="code-btn btn f-10" id="phone_code" type="button">
+                        发送验证码
+                    </button>
+                </div>
+                <div class="form-submit" type="submit" id="form_submit">
+                    <img class="img" src="images/makecard.png" alt="">
+                </div>
+            </form>
+        </div>
+    </div>
+
+<include file="Uc:tpl_common_foot" />
+    <script>
+        $(function(){
+            app.makecard.init();
+            //app.common.init();
+        })
+    </script>
+</body>
+</html>

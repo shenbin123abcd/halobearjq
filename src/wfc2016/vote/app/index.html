@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="html-index">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>作品投票</title>
+    <include file="Vote:tpl_common_head" />
+    <include file="Common:tpl_commom_ad_style" />
+</head>
+<body class="body-index">
+<include file="Common:tpl_wfc_all_nav" />
+<div class="page-index">
+<div class="top-countdown clearfix">
+    <div class="animate-box">
+        <div class="meng" data-count="{$count}"><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div>
+        </div>
+        <span class="text f-12">次访问</span>
+    </div>
+    <div class="join-btn-box">
+        <a class="btn join f-12" href="/vote/share">参赛通道</a>
+    </div>
+</div>
+<div class="index-slug">
+    <a href="/vote/share">
+        <img src="images/slug.png" alt="" class="img">
+    </a>
+</div>
+
+<div class="index-case-list-wrapper">
+    <div class="list-1 clearfix">
+        <volist name="list" id="vo" key="ii">
+            <div class="area clearfix">
+                <div class="title-area f-17"><i class="line"></i><span class="text">{$vo.title}赛区</span><i class="line"></i></div>
+                <volist name="vo.list" id="voo">
+                    <div class="item">
+
+                        <div class="item-pic">
+                            <a class="block" href="/vote/casedetail?id={$voo.id}">
+                                <eq name="ii" value="1">
+                                    <img src="{$voo.cover}"  class="img">
+                                <else/>
+                                    <img data-original="{$voo.cover}" src="data:image/gif;base64,R0lGODlhAQABAIAAAPDw8AAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" class="img lazy">
+                                </eq>
+                            </a>
+                            <div class="ticket f-10"><span class="f-12 num-text-top">{$voo.num}</span><span>票</span></div>
+                        </div>
+                        <div class="item-title f-13">
+                            <a class="item-title-a" href="/vote/casedetail?id={$voo.id}">《{$voo.title}》</a>
+                        </div>
+                        <div class="item-text f-14">
+                            <a class="item-text-a" href="/vote/companydetail?id={$voo.company_id}">{$voo.team}</a>
+                        </div>
+                    </div>
+                </volist>
+                <div class="see-more-btn clearfix">
+                    <a class="btn btn-color-main" href="/vote/caselist?aid={$voo.area}&type=vote">
+                        查看{$vo.title}赛区{$vo.count}个作品<i class="haloIcon haloIcon-right f-11" style="margin-left:2px;"></i>
+                    </a>
+                </div>
+            </div>
+        </volist>
+        <div class="area clearfix">
+            <div class="title-area f-17"><i class="line"></i><span class="text">全国参赛作品前十名</span><i class="line"></i></div>
+            <volist name="caseList" id="voo">
+                <div class="item">
+
+                    <div class="item-pic">
+                        <a class="block" href="/vote/casedetail?id={$voo.id}">
+                            <eq name="ii" value="1">
+                                <img src="{$voo.cover}"  class="img">
+                                <else/>
+                                <img data-original="{$voo.cover}" src="data:image/gif;base64,R0lGODlhAQABAIAAAPDw8AAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" class="img lazy">
+                            </eq>
+                        </a>
+                        <div class="ticket f-10"><span class="f-12 num-text-top">{$voo.num}</span><span>票</span></div>
+                    </div>
+                    <div class="item-title f-13">
+                        <a class="item-title-a" href="/vote/casedetail?id={$voo.id}">《{$voo.title}》</a>
+                    </div>
+                    <div class="item-text f-14">
+                        <a class="item-text-a" href="/vote/companydetail?id={$voo.company_id}">{$voo.team}</a>
+                    </div>
+                </div>
+            </volist>
+            <div class="see-more-btn clearfix">
+                <a class="btn btn-color-main" href="/vote/caselist?type=vote">
+                    查看全国参赛全部作品<i class="haloIcon haloIcon-right f-11" style="margin-left:2px;"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="index-company-list-wrapper">
+    <div class="list-2">
+        <div class="title-company f-17"><i class="line"></i><span class="text">全国参赛公司总票数排名</span><i class="line"></i></div>
+        <div class="clearfix">
+            <volist name="companyList" id="vo">
+                <if condition="$i lt 22">
+                <div class='companyList-item col-xs-4 <!--<eq name="i" value="19">col-xs-offset-2</eq>--> '>
+                    <a href="/vote/companydetail?id={$vo.id}" class="item-pic">
+                        <img class="img lazy"
+                             data-original="{$vo.logo}"
+                             src="data:image/gif;base64,R0lGODlhAQABAIAAAPDw8AAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==">
+                    </a>
+                    <a href="/vote/companydetail?id={$vo.id}" class="img-no">
+                        <img src="images/sidai.png" alt="">
+                        <div class="img-no-text f-11">NO.{$i}</div>
+                    </a>
+                    <a  href="/vote/companydetail?id={$vo.id}" class="item-company f-11">{$vo.name}</a>
+                    <div class="item-area f-10">{$vo.province}省</div>
+                    <div class="item-ticket f-10"><span class="f-13">{$vo.num}</span>票</div>
+                </div>
+                </if>
+            </volist>
+        </div>
+        <div>
+            <a class="btn btn-color-main all-company-btn f-12" href="/vote/companyallrank" >查看全国公司排名<i class="haloIcon haloIcon-right f-11" style="margin-left:2px;"></i></a>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+<include file="Vote:tpl_foot_qrcode" />
+<include file="Vote:tpl_float_bt" />
+<include file="Vote:tpl_common_foot" />
+<include file="Common:tpl_common_ad_script" />
+<script>
+    $(function(){
+        "use strict";
+        app.common.init();
+        app.index.init();
+    })
+</script>
+</body>
+</html>

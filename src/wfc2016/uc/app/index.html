@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="html-1 html-index">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>个人中心</title>
+    <include file="Uc:tpl_common_head" />
+    <include file="Common:tpl_commom_ad_style" />
+</head>
+<body class="body body-index">
+<include file="Common:tpl_wfc_all_nav" />
+<div class="page-wrapper">
+
+
+    <div class="ticket-info-wrapper" >
+        <div class="img-box">
+            <img class="img" src="{$ticket.headimgurl}" alt="">
+        </div>
+        <div class="name-box">
+            {$ticket.nickname}
+        </div>
+        <div class="id-box">
+            NO.{$ticket.id}
+        </div>
+
+        <div class="ticket-name-box">
+            <eq name="state_arr.is_complete" value="1">
+                <span class="name">
+                    2016中国婚礼行业高峰论坛{$ticket.detail.title}
+                </span>
+                <span class="price-css">
+                    ￥{$ticket.detail.price}
+                </span>
+            </eq>
+
+            <eq name="state_arr.is_complete" value="0">
+                <span class="name">
+                    2016中国婚礼行业高峰论坛门票选购
+                </span>
+            </eq>
+        </div>
+
+
+        <eq name="state_arr.is_complete" value="1">
+            <div class="sale-price-success-box" >
+                <img class="img" src="images/congratulations.png" alt="">
+            </div>
+
+            <div class="ticket-box">
+                <img class="ticket" src="images/ticket-sample.png" alt="">
+                <div class="price"><span class="name">{$ticket.detail.title}</span><span class="num">￥{$ticket.detail.price}</span></div>
+            </div>
+            <div id="show-bt-box-condition" >
+
+            </div>
+        </eq>
+
+        <eq name="state_arr.is_complete" value="0">
+            <div class="ticket-type-box">
+                <div data-href="/uc/ticket?id={$ticket.id}&type=0" data-target-id="ticket-type-message-0" bt-ticket-des class="ticket-type ticket-type-1"></div>
+                <div data-href="/uc/ticket?id={$ticket.id}&type=2" data-target-id="ticket-type-message-2"  class="ticket-type ticket-type-2"></div>
+                <div data-href="/uc/ticket?id={$ticket.id}&type=3" data-target-id="ticket-type-message-3"  class="ticket-type ticket-type-3"></div>
+            </div>
+        </eq>
+
+
+    </div>
+
+    <div class="ticket-task-title-wrapper">
+        <div class="bar"></div>
+        <div class="text">我的2016中国婚礼行业高峰论坛参会信息</div>
+        <div class="bar"></div>
+    </div>
+    <div class="ticket-task-list-wrapper" id="ticket-task-list-wrapper">
+        <div class="item item-lock" id="item-ticket">
+            <a class="link" href="/uc/ticket?id={$ticket.id}">
+                <img class="ico" src="images/ico-ticket.png" alt="">
+                <div class="info">
+                    <div class="title">峰会门票限时疯抢</div>
+                    <div class="des">发挥你的才智获得峰会限时特惠门票一张</div>
+                </div>
+                <div class="progress lock"><img class="img" src="images/task-lock.png" alt=""></div>
+                <div class="progress finish"><img class="img" src="images/task-finish.png" alt=""></div>
+                <div class="progress unlock"></div>
+            </a>
+            <div   class="lock-bg"></div>
+            <a  href="/uc/ticket?id={$ticket.id}&type={$ticket.type}" class="finish-bg"></a>
+        </div>
+
+        <div class="item item-lock" id="item-mark">
+            <a class="link" href="/uc/address">
+                <img class="ico" src="images/ico-mark.png" alt="">
+                <div class="info">
+                    <div class="title">峰会门票快递地址</div>
+                    <div class="des">完善快递签收地址，八月初即可收到精美门票</div>
+                </div>
+                <div class="progress lock"><img class="img" src="images/task-lock.png" alt=""></div>
+                <div class="progress finish"><img class="img" src="images/task-finish.png" alt=""></div>
+                <div class="progress unlock"></div>
+            </a>
+            <div class="lock-bg"></div>
+            <a class="finish-bg" href="/uc/cardsuccess"></a>
+        </div>
+
+        <div class="item item-lock" id="item-card">
+            <a class="link" href="/uc/address/#cardContainer">
+                <img class="ico" src="images/ico-card.png" alt="">
+                <div class="info">
+                    <div class="title">峰会个人胸卡制作</div>
+                    <div class="des">提交参会信息制作独一无二的个性参会胸卡</div>
+                </div>
+                <div class="progress lock"><img class="img" src="images/task-lock.png" alt=""></div>
+                <div class="progress finish"><img class="img" src="images/task-finish.png" alt=""></div>
+                <div class="progress unlock"></div>
+            </a>
+            <div class="lock-bg"></div>
+            <a href="/uc/addsuccess" class="finish-bg"></a>
+        </div>
+
+
+
+
+        <div class="item item-lock" id="item-note">
+            <a href="/course" class="link">
+                <img class="ico" src="images/ico-note.png" alt="">
+                <div class="info">
+                    <div class="title">峰会大咖课程选座</div>
+                    <div class="des">与大咖面对面，限量专业课程名额赶紧来预定</div>
+                </div>
+                <div class="progress lock"><img class="img" src="images/task-lock.png" alt=""></div>
+                <div class="progress finish"><img class="img" src="images/task-finish.png" alt=""></div>
+                <div class="progress unlock"></div>
+            </a>
+            <a href="/course" class="lock-bg"></a>
+            <a href="/course/my?id={$ticket.id}" class="finish-bg"></a>
+        </div>
+
+        <div class="item item-lock" id="item-bind">
+            <a href="/uc/makecard" class="link">
+                <img class="ico" src="images/ico-link.png" alt="">
+                <div class="info">
+                    <div class="title">线下渠道门票绑定</div>
+                    <div class="des">如有线下渠道门票，请在此完成微信账号绑定</div>
+                </div>
+                <div class="progress lock"><img class="img" src="images/task-lock.png" alt=""></div>
+                <div class="progress finish"><img class="img" src="images/task-finish.png" alt=""></div>
+                <div class="progress unlock"></div>
+            </a>
+            <div  class="lock-bg"></div>
+            <div  class="finish-bg"></div>
+        </div>
+
+        <div class="item item-lock" id="item-props">
+            <a href="/props/mycoupons" class="link">
+                <img class="ico" src="images/ico-rod.png" alt="">
+                <div class="info">
+                    <div class="title">道具狂欢节优惠券</div>
+                    <div class="des">百家婚嫁行业服务商千万补贴等你来领</div>
+                </div>
+                <div class="progress lock"><img class="img" src="images/task-lock.png" alt=""></div>
+                <div class="progress finish"><img class="img" src="images/task-finish.png" alt=""></div>
+                <div class="progress unlock"></div>
+            </a>
+            <div  class="lock-bg"></div>
+            <div  class="finish-bg"></div>
+        </div>
+
+        <div class="item item-lock" id="item-meal">
+            <a href="/uc/meal" class="link">
+                <img class="ico" src="images/ico-meal.png" alt="">
+                <div class="info">
+                    <div class="title">峰会期间自助餐券</div>
+                    <div class="des">峰会官方提供的商务自助午餐晚餐服务</div>
+                </div>
+                <div class="progress lock"><img class="img" src="images/task-lock.png" alt=""></div>
+                <div class="progress finish"><img class="img" src="images/task-finish.png" alt=""></div>
+                <div class="progress unlock"></div>
+            </a>
+            <div  class="lock-bg"></div>
+            <div  class="finish-bg"></div>
+        </div>
+
+        <div class="item item-lock" id="item-hotel">
+            <a href="/uc/hotels" class="link">
+                <img class="ico" src="images/ico-hotel.png" alt="">
+                <div class="info">
+                    <div class="title">峰会期间酒店住宿</div>
+                    <div class="des">峰会官方提供的五星四星快捷酒店住宿服务</div>
+                </div>
+                <div class="progress lock"><img class="img" src="images/task-lock.png" alt=""></div>
+                <div class="progress finish"><img class="img" src="images/task-finish.png" alt=""></div>
+                <div class="progress unlock"></div>
+            </a>
+            <div  class="lock-bg"></div>
+            <div  class="finish-bg"></div>
+        </div>
+
+        <div class="item item-lock" id="item-note-2" style="display: none;">
+            <a href="/uc/caseRecord" class="link">
+                <img class="ico" src="images/ico-note-2.png" alt="">
+                <div class="info">
+                    <div class="title">峰会现场交易记录</div>
+                    <div class="des">样片、金熊奖合集和道具节购买记录查看</div>
+                </div>
+
+                <div class="progress lock"><img class="img" src="images/task-lock.png" alt=""></div>
+                <div class="progress finish"><img class="img" src="images/task-finish.png" alt=""></div>
+                <div class="progress unlock"></div>
+            </a>
+            <div  class="lock-bg"></div>
+            <div  class="finish-bg"></div>
+        </div>
+
+
+    </div>
+    <include file="Uc:tpl_activity_rule" />
+</div>
+
+
+
+
+
+<include file="Uc:tpl_modals" />
+
+
+<include file="Uc:tpl_common_foot" />
+
+<script>
+    window.appData={
+        state : {$state},
+    };
+
+//    window.appData={
+//        state : {
+//            is_support: '0',
+//            is_complete: 1,
+//            is_address: 0,
+//            is_card: 0,
+//            is_course: 0,
+//            hotels: '1',
+//            is_meal: 1,
+//            is_bind: 0
+//        }
+//    };
+
+//    console.log(appData)
+
+</script>
+<script>
+    $(function(){
+        app.common.init();
+        app.index.init();
+//        app.common.ticketProgress();
+//        app.common.renderPriceNumber();
+        app.common.showButton();
+//        app.common.getDiscount();
+//        app.common.buyTicket();
+//        app.common.showMessage();
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="html-1 html-index makecard">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>住宿登记</title>
+    <include file="Props:tpl_common_head" />
+    <include file="Common:tpl_commom_ad_style" />
+</head>
+<body class="body makecard-body">
+<div class="makecard-block">
+    <div class="block-content">
+        <div class="title f-16">
+            2016中国婚礼行业高峰论坛
+            <div id="register_title" data-type></div>
+        </div>
+        <div class="f-11" style="line-height:20px;height:20px;text-align: center;background: #eeeeee;margin:0 -20px;margin-top:20px;color:#bebebe;">
+            个人信息
+        </div>
+        <form class="form-content">
+            <div class="input-box clearfix">
+                <label for='name' class="form-label f-13">来宾姓名：</label>
+                <empty name="user.name" >
+                    <input type="text" placeholder="姓名须与身份证上一致" class="form-input" id="name" autocomplete="off">
+                <else/>
+                    <input type="text" placeholder="姓名须与身份证上一致" class="form-input" value="{$user.name}" disabled="disabled" id="name" autocomplete="off">
+
+                </empty>
+
+
+            </div>
+            <div class="input-box clearfix">
+                <label for='phone' class="form-label f-13">手机号码：</label>
+
+                <empty name="user.name" >
+                    <input type="text" placeholder="须是入住来宾的手机号" class="form-input" id="phone" autocomplete="off">
+                <else/>
+                    <input type="text" placeholder="须是入住来宾的手机号" class="form-input" value="{$user.phone}" disabled="disabled" id="phone" autocomplete="off">
+                </empty>
+
+
+            </div>
+            <div class="input-box clearfix">
+                <label for="sex" class="form-label f-13">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</label>
+                <select class="form-input province" id="sex">
+                    <option value="">请选择</option>
+                    <option value="1">男</option>
+                    <option value="2">女</option>
+                </select>
+            </div>
+            <div class="input-box clearfix">
+                <label for='info' class="form-label f-13">拼房备注：</label>
+                <input type="text" placeholder="如和北京汇爱张三同住一间" class="form-input" id="info" autocomplete="off">
+            </div>
+            <div class="f-11 desc-text">
+                若无指定拼房对象，则视为同意组委会的房间入住安排
+            </div>
+            <div class="form-submit" type="submit" id="form_submit">
+                <img class="img" src="images/hotel-center-btn.png" alt="">
+            </div>
+        </form>
+    </div>
+    <div class="weixin-pic">
+        <img src="images/weixin.png" alt="">
+    </div>
+    <div style="color:#fff;text-align: center;font-size:12px;margin-top: 13px;">
+        添加幻熊客户支持微信，咨询2016峰会活动信息。
+    </div>
+</div>
+
+
+
+
+
+
+<include file="Props:tpl_common_foot" />
+<script>
+    $(function(){
+        app.common.init();
+        app.register.init();
+    })
+</script>
+</body>
+</html>

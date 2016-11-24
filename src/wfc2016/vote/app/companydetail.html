@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>公司主页</title>
+    <include file="Vote:tpl_common_head" />
+    <include file="Common:tpl_commom_ad_style" />
+</head>
+<body class="body-company-detail">
+<include file="Common:tpl_wfc_all_nav" />
+<div id="vote-preloads"></div>
+<div class="company-detail-page">
+    <div class="company-detail-info">
+        <div class="detail-pic-wrapper">
+            <div class="detail-info-pic">
+                <img class="img" src="{$data.logo}" alt="">
+            </div>
+        </div>
+        <div class="detail-info-title f-16"><span id="company-name">{$data.name}</span></div>
+        <div class="detail-info-num f-13"><span id="total-case-num"></span>个参赛作品</div>
+        <a class="btn  company" href="/vote/companyrank?aid={$data.area}">
+            查看公司排名<i class="haloIcon haloIcon-right f-11" style="margin-left:2px;"></i>
+        </a>
+        <div class="top-col">
+            <div class="top-col-item">
+                <div class="top f-13">
+                    票数
+                </div>
+                <div class="num f-15">
+                    <span class="f-15">{$data.total_num}</span>
+                </div>
+            </div>
+            <div class="top-col-item">
+                <div class="top f-13">
+                    {$data.area_title}
+                </div>
+                <div class="num f-15">
+                    {$data.area_rank}
+                </div>
+            </div>
+            <div class="top-col-item">
+                <div class="top f-13">
+                    全国
+                </div>
+                <div class="num f-15">
+                    {$data.all_rank}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="case-list" id="case-list">
+        <div class="case-list-title f-17">
+            — &nbsp;参赛作品&nbsp; —
+        </div>
+
+        <div id="company-case-list" data-id="{$data.id}" >
+            <div class="loading-box"><i class="haloIcon haloIcon-spin haloIcon-spinner"></i></div>
+        </div>
+    </div>
+</div>
+<include file="Vote:tpl_foot_qrcode" />
+<include file="Vote:tpl_common_foot" />
+
+
+<script>
+    window.appData={
+        code:{$code},
+        share : {
+            title: '2016中国婚礼策划金熊奖',
+            content: '「{$data.name}」'+'正在角逐中国婚礼策划最高奖—2016金熊奖，期待你的支持！',
+            link: window.location.href,
+            logo: '{$data.logo}' || 'http://7ktq5x.com1.z0.glb.clouddn.com/vote_wechat_work.png'
+        }
+    };
+</script>
+<script>
+    $(function(){
+        app.common.init();
+        app.companyDetail.init();
+        app.vote.init();
+    })
+</script>
+</body>
+</html>

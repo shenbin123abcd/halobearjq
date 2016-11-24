@@ -1,0 +1,31 @@
+
+@font-face {font-family: "haloIcon";
+  src: url('iconfont.eot?t=1468226989'); /* IE9*/
+  src: url('iconfont.eot?t=1468226989#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1468226989') format('woff'), /* chrome, firefox */
+  url('iconfont.ttf?t=1468226989') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1468226989#haloIcon') format('svg'); /* iOS 4.1- */
+}
+
+.haloIcon {
+  font-family:"haloIcon" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.haloIcon-select-arrowdown:before { content: "\e607"; }
+.haloIcon-time:before { content: "\e609"; }
+.haloIcon-alert:before { content: "\e608"; }
+.haloIcon-right:before { content: "\e60a"; }
+.haloIcon-iconfontarrowtop:before { content: "\e60b"; }
+.haloIcon-modal-close:before { content: "\e600"; }
+.haloIcon-spinner:before { content: "\e60c"; }
+.haloIcon-glass-3:before { content: "\e601"; }
+.haloIcon-top:before { content: "\e602"; }
+.haloIcon-s-wechat:before { content: "\e603"; }
+.haloIcon-s-address:before { content: "\e604"; }
+.haloIcon-s-name:before { content: "\e605"; }
+.haloIcon-phone:before { content: "\e606"; }
+.haloIcon-tel:before { content: "\e60d"; }

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="html-search">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>"{$Think.get.name}" 的搜索结果</title>
+    <include file="Supplier:tpl_common_head" />
+</head>
+<body>
+<div class="page-search search-result">
+    <div class="page-search-title clearfix">
+        <form class="clearfix" action="/supplier/search" id="search_form">
+            <div class="form-group clearfix search-form">
+                <i class="haloIcon haloIcon-glass-3 f-18"></i>
+                <input type="text" name="name" class="form-control input f-14" placeholder="请输入公司名" value="{$Think.get.name}" id="search_input">
+            </div>
+            <a class="form-btn btn f-14" type="button" id="cancel" onclick="window.history.go(-2)">取消</a>
+        </form>
+    </div>
+
+    <empty name="list">
+        <div class="page-search-result-no-content">
+            <div class="msg">
+                很抱歉，没有找到你正在搜索的公司 <br>
+                我们为你推荐了以下公司
+            </div>
+            <div class="page-search-hot">
+                <div class="title f-14">热门搜索</div>
+                <div class="tip-block clearfix" id="hot-tip-content"><div id="loading-more" style="margin-left:15px;"><i class="haloIcon haloIcon-spin haloIcon-spinner f-20"></i></div></div>
+            </div>
+        </div>
+    <else/>
+        <div class="page-search-result-content">
+            <div class="list-3">
+                <volist name="list" id="vo">
+                    <a class="item" href="/supplier/detail?id={$vo.id}">
+                        <div class="img-box">
+
+                            <if condition="$i lt 9">
+                                <img src="{$vo.logo_url}"
+                                     class="img"  >
+                            <else/>
+                                <img data-original="{$vo.logo_url}" src="data:image/gif;base64,R0lGODlhAQABAIAAAPDw8AAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+                                     class="img lazy"  >
+                            </if>
+                        </div>
+                        <div class="info-box">
+                            <div class="name">{$vo.title}</div>
+                            <div class="area">{$vo.province_name} | {$vo.city_name}</div>
+                        </div>
+                        <div class="point-box">
+                            <span>{$vo.num}</span>票
+                        </div>
+                    </a>
+
+                </volist>
+                <div class="clearfix" id="search-load-more"></div>
+            </div>
+
+        </div>
+    </empty>
+
+
+
+
+</div>
+
+
+<include file="Supplier:tpl_common_foot" />
+<script>
+    $(function(){
+        "use strict";
+        app.common.init();
+        app.search.init();
+
+    })
+</script>
+</body>
+</html>

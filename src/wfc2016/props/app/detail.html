@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="html-seat">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>狂欢节选座</title>
+    <include file="Props:tpl_common_head" />
+    <include file="Common:tpl_commom_ad_style" />
+</head>
+<body>
+<include file="Common:tpl_wfc_all_nav" />
+<div id="example"></div>
+
+<include file="Props:tpl_common_foot" />
+<include file="Common:tpl_common_ad_script" />
+<script>
+    window.appData={
+        course:{$course},
+        seats:{$seats},
+        is_selected:{$is_selected},
+        is_complete:{$is_complete},
+        share : {
+
+        }
+    };
+    window.appData.share.link='http://wfc.halobear.com/props/detail?id='+hb.location.url("?id");
+
+//    window.appData={
+//        seats:{$seats},
+//        course:{"id":"25","uid":"0","date":"08\u670817\u65e5","start_time":"09:00","end_time":"12:00","meetingplace":"D","headline":"\u5a5a\u4f01\u8fd0\u8425\u7ba1\u7406\u57f9\u8bad\u8bfe\u7a0b","guest_id":"75","create_time":"0","update_time":"0","status":"0","sort":"0","guest_number":"074","guest":{"title":"\u8d75\u6c5f","company_name":"\u4e91\u5357\u5a5a\u793c\u5bb6","position":"\u9500\u552e\u4e13\u5bb6","content":"","number":"074"}},
+//        is_selected:{$is_selected},
+//        is_complete:{$is_complete},
+//        state : {
+//            is_support: '0',
+//            is_complete: 0,
+//            is_address: 0,
+//            is_card: 0,
+//            is_course: 0,
+//            is_bind: 0
+//        }
+//    };
+</script>
+<script>
+    $(function(){
+        app.common.init();
+        app.detail.init("#example");
+    })
+</script>
+</body>
+</html>

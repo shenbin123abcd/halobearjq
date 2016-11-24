@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="html-apply">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script type="text/javascript">
+        (function () {
+            var isAndroid = navigator.userAgent.toLowerCase().indexOf("android") > -1;
+            var viewport = document.querySelector("meta[name=viewport]");
+            if (isAndroid) {
+                viewport.setAttribute('content', 'width=device-width,height=' + window.innerHeight + ', initial-scale=1, maximum-scale=1, user-scalable=0');
+            }
+        }());
+    </script>
+    <title>服务商评选报名</title>
+    <include file="Supplier:tpl_common_head" />
+</head>
+<body  class="body-apply">
+<div class="apply-header">
+    <div class="welcome">
+        欢迎阁下参加
+    </div>
+    <div class="title">
+        2016中国最佳婚礼服务商评选
+    </div>
+</div>
+
+<form class="apply-form" id="apply-form">
+    <div class="group">
+        <input type="text" name="name" class="form-control form-control-main" placeholder="请输入姓名">
+    </div>
+    <div class="group">
+        <input type="number" name="phone" class="form-control form-control-main" placeholder="请输入11位手机号">
+
+    </div>
+    <div class="group">
+        <input type="text" name="wechat" class="form-control form-control-main" placeholder="请输入微信号">
+
+    </div>
+    <div class="group">
+        <input type="text" name="company" class="form-control form-control-main" placeholder="请输入公司名">
+    </div>
+    <div class="bt-box">
+        <button type="submit" class="btn btn-block btn-color-main btn-size-main">提交</button>
+    </div>
+
+</form>
+
+
+
+<include file="Supplier:tpl_common_foot" />
+<script>
+    $(function(){
+        "use strict";
+        app.common.init();
+        app.apply.init();
+
+    })
+</script>
+</body>
+</html>

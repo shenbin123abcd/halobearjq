@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class=" html-index draw-bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title title>峰会抽奖刮刮乐</title>
+    <include file="Uc:tpl_common_head" />
+</head>
+<body class="body-index">
+    <div class='draw-block'>
+        <div class="draw-bg-1">
+            <div class="draw-bg-color">
+                <div class="draw-box">
+                    <div class="draw-container" id="draw-container">
+                        <div id="draw-hidden">
+                            <div class="draw-text">刮峰会机票 &nbsp;火车票</div>
+                            <div class="draw-btn btn" id="draw-btn">点我刮奖</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="draw-times">
+                    您有<span class="padding" id="show-num">{$times}</span>次刮奖机会
+                </div>
+            </div>
+        </div>
+        <div class="draw-bg-2"></div>
+        <div class="draw-bg-3">
+            <div class="img-bg">
+                <img src="images/draw3.png" alt="">
+            </div>
+            <div class="prize-block">
+                <div class="prize-container" id="prize-container">
+                    <empty name="list">
+                        <div class="no-data">
+                            暂无数据
+                        </div>
+                    <else/>
+                        <volist name="list" id="vo">
+                            <div class="prize-item">
+                                <div class="item item-company">{$vo.nickname}</div>
+                                <!--<div class="item item-phone">{$vo.nickname}</div>-->
+                                <div class="item item-desc">{$vo.prize}</div>
+                            </div>
+                        </volist>
+                    </empty>
+                </div>
+                <div class="prize-car">
+                    <img src="images/draw5.png" alt="" class="img">
+                </div>
+                <div class="prize-title">
+                    <div class="img-wrapper">
+                        <img src="images/draw4.png" alt="" class="img">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="draw-bg-4">
+            <a href="mydraw" class="my-card-btn">
+                <img src="images/draw6.png" alt="">
+            </a>
+        </div>
+    </div>
+<include file="Uc:modal" />
+<include file="Uc:tpl_common_foot" />
+    <script>
+        $(function(){
+            app.draw.init();
+            app.wechat.init();
+        })
+    </script>
+</body>
+</html>

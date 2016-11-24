@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="html-goods" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>{$data.name}</title>
+    <include file="Props:tpl_common_head" />
+</head>
+<body class="body-goods" ng-controller="mainCtrl" >
+<div class="page-goods-wrapper">
+    <div class="cover-wrapper">
+        <img class="img" src="{$data.cover}?imageView2/2/w/750" alt="">
+    </div>
+    <div class="name-wrapper" ng-cloak>
+        <div class="name-box" >
+            <div class="name" >{{vm.data.c_name}}</div>
+            <div class="sub-name" >{{vm.data.c_company_name}}</div>
+
+        </div>
+        <div class="price-box">
+            <span class="rmb">¥</span>
+            <span class="num"  >{{vm.selectedSku.sell_price||vm.data.c_sell_price_range}}</span>
+        </div>
+
+    </div>
+
+    <div  ng-cloak ng-if="vm.data.specs.length>0">
+        <div class="sku-wrapper block-wrapper" ng-repeat="spec in vm.data.specs">
+            <div class="block-title">{{spec.name}}</div>
+            <div class="block-content cf">
+                <div class="sku-item-box" ng-click="vm.selectSpec(item,$parent.$index)" ng-repeat="item in spec.value" >
+                    <div class="sku-name" ng-class="{active:vm.selectedSpecs[$parent.$index].id==item.id}">{{item.name}}</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-cloak class="block-wrapper" ng-if="vm.data.attrs.length>0">
+        <div class="block-title">参数</div>
+        <div class="block-content cf">
+            <div class="block-item" ng-repeat="item in vm.data.attrs" ng-if="item.value">
+                <div class="item-name">{{item.name}}</div>
+                <div class="item-value">{{item.value}}</div>
+            </div>
+
+        </div>
+    </div>
+    <div ng-cloak class="block-wrapper" ng-if="vm.is_address==0">
+        <div class="block-title">快递信息</div>
+        <div class="block-content cf">
+            <div class="block-item" my-address >
+
+            </div>
+        </div>
+    </div>
+
+
+    <div ng-cloak class="bt-wrapper" >
+        <div class="number-box" >
+            <input class="control" ng-disabled="!vm.selectedSku" ng-init="vm.purchaseNumber=0" ng-model="vm.purchaseNumber" number-control max="vm.selectedSku.store_nums" type="number">
+            <button class="minus bt" ng-disabled="!vm.selectedSku" number-minus="vm.purchaseNumber">-</button>
+            <button class="add bt" ng-disabled="!vm.selectedSku" max="vm.selectedSku.store_nums" number-add="vm.purchaseNumber">+</button>
+        </div>
+        <button ng-disabled="!(vm.purchaseNumber>0)" class="pay-box" ng-click="vm.submit()">
+            <span class="text">立即支付:</span>
+            <span class="rmb">¥</span>
+            <span class="price" >{{vm.purchaseNumber*vm.selectedSku.sell_price||'-'}}</span>
+        </button>
+    </div>
+
+</div>
+
+
+
+
+
+<include file="Props:tpl_common_foot" />
+<script>
+    $(function(){
+        window.appData={
+            data:{$dataJson},
+            is_address:{$is_address}
+        };
+        app.common.init();
+        app.goods.init();
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="html-index">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>金熊奖报名参赛</title>
+    <include file="Vote:tpl_common_head" />
+</head>
+<body class="share">
+<div class="share-box block1">
+    <div class="block-title"><img class="img" src="images/share/bg1.png" alt=""></div>
+    <a class="block-button" href="/vote/apply"><img src="images/share/bg1-button.png" alt=""></a>
+</div>
+<div class="share-box block2">
+    <img src="images/share/bg2.png" alt="">
+</div>
+<div class="share-box block3">
+    <img src="images/share/bg3.png" alt="">
+</div>
+<div class="share-box block4">
+        <div class="block4-img">
+            <img src="images/share/bg4-img4.png" alt="">
+        </div>
+        <div class="block-4-rank">
+            <img src="images/share/bg4-img4-rank.png" alt="">
+        </div>
+        <div class="item person">
+            <div class="race-box">
+                <div class="title">
+                    <img class='img' src="images/share/title-box-6.png" alt="">
+                    <div class="text f-11">峰会现场初赛</div>
+                </div>
+                <div class="desc f-10">
+                    <span class="line">现场初赛将按所属赛区在各自会议厅同时进行，51位评审委员会评委将随机</span>
+                    <span class="line">分配到7个分赛区，每个赛区会有5位评委。为保证比赛公允性，分配时</span>
+                    <span class="line">采用回避评分原则。本地区的评委将不会参与本赛区的评审。</span>
+                </div>
+                <div class="person-list">
+                    <div class="item-block clearfix" id="itemt-list"></div>
+                </div>
+                <div class="juesai-block-img">
+                    <img src="images/share/block4-img.png" alt="">
+                </div>
+            </div>
+
+        </div>
+
+</div>
+<div class="share-box block5">
+    <img src="images/share/bg-5.png" alt="">
+</div>
+<div class="share-box block6">
+    <img src="images/share/bg6.png" alt="">
+</div>
+<div class="share-box block7">
+    <div class="bg-img"><img src="images/share/bg7.png" alt=""></div>
+</div>
+<div class="share-box block8 review">
+    <div class="review-img"><img src="images/share/block8-1.png" alt=""></div>
+    <div class="review-img"><img src="images/share/block8-2.png" alt=""></div>
+    <div class="review-img"><img src="images/share/block8-3.png" alt=""></div>
+    <div class="review-img"><img src="images/share/block8-4.png" alt=""></div>
+    <div class="share-video-box">
+        <!--<div class="title f-16">2015中国婚礼策划金熊奖</br>决赛阶段合辑</div>-->
+        <div class="video-play" style="display: block;">
+            <iframe id="video" height="192" width="100%" src="http://player.youku.com/embed/XMTQwNjcwOTc2MA==" frameborder=0 allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="bg-img">
+        <img src="images/share/bg8.png" alt="">
+    </div>
+    <a class="bg-btn" href="/vote/apply"><img src="images/share/bg8-button.png" alt=""></a>
+
+</div>
+
+
+
+
+
+<include file="Vote:tpl_common_foot" />
+<script>
+
+    window.appData={
+        //area:'{$data.area}',
+        code:{$code},
+        share : {
+            title: '2016中国婚礼策划金熊奖',
+            content: '「为你的努力加冕」2016中国婚礼策划师最高奖-金熊奖，2016年度婚礼策划真实作品网络人气票选！',
+            link: 'http://wfc.halobear.com/vote/share',
+            logo: 'http://7ktq5x.com1.z0.glb.clouddn.com/vote_wechat_shar.png',
+        }
+    };
+</script>
+<script>
+    $(function(){
+        "use strict";
+        app.common.wechat();
+        app.share.init();
+        videoInit();
+        function videoInit(){
+            var width = window.innerWidth-38;
+            var height = width*9/16;
+            $('#video').attr({
+                width: width,
+                height: height
+            });
+        }
+    })
+</script>
+
+</body>
+</html>

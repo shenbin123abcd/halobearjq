@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" class="html-cover-loading">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=750, user-scalable=no">
+    <title>狂欢节</title>
+    <include file="Props:tpl_common_head" />
+
+</head>
+<body class="body-props-cover">
+<!--<div id="props-preloads" ></div>-->
+<div class="props-cover-loading" id="props-cover-loading" >
+    <div class="loader-inner line-scale">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<div cover-content style="display: none;" id="props-light-box-wrapper" class="props-light-box-wrapper">
+    <div hb-loop-item class="light"></div>
+    <div hb-loop-item class="light"></div>
+    <div id="props-title" class="title"></div>
+</div>
+
+<a cover-content style="display: none;" id="props-bt-box-wrapper" href="/props/detail?id={:I('id')}" class="props-bt-box-wrapper">
+    <div hb-loop-item class="light"></div>
+    <div hb-loop-item class="light"></div>
+</a>
+
+<div cover-content style="display: none;" class="props-rest-num-wrapper" >
+    <div class="num-box" id="num-box"></div>
+</div>
+
+
+<include file="Props:tpl_common_foot" />
+<script src="//cdn.bootcss.com/PreloadJS/0.6.0/preloadjs.min.js"></script>
+
+<script>
+    window.appData={
+        course:{$course},
+        num:{$num}
+    };
+    $(function(){
+        app.common.init();
+        app.cover.init();
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="html-case-list">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>{$title}赛区</title>
+    <include file="Vote:tpl_common_head" />
+</head>
+<body  class="body-case-list">
+<div class="case-list-page">
+    <div class="case-list-header" id="case-list-header">
+        <a href="/vote/caselist?aid={:I('get.aid')}" class="item" id="type-new">
+            <span class="text">最新上传</span>
+        </a>
+        <a href="/vote/caselist?type=vote&aid={:I('get.aid')}" class="item" id="type-vote">
+            <span class="text">最多投票</span>
+        </a>
+        <a href="/vote/caselist?type=views&aid={:I('get.aid')}" class="item" id="type-views">
+            <span class="text">最多浏览</span>
+        </a>
+    </div>
+    <div class="case-list-content clearfix">
+        <volist name="list" id="vo">
+            <li class="item clearfix">
+                <div class="item-pic">
+                    <a class="block" href="/vote/casedetail?id={$vo.id}">
+                        <if condition="$i lt 9">
+                            <img src="{$vo.cover}"
+                                 class="img"  >
+                        <else/>
+                            <img data-original="{$vo.cover}" src="data:image/gif;base64,R0lGODlhAQABAIAAAPDw8AAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+                                 class="img lazy"  >
+                        </if>
+                    </a>
+                    <div class="ticket f-12"><span class="f-14 num-text-top">{$vo.num}</span>票</div>
+                </div>
+                <div class="item-title f-13">
+                    <a class="item-title-a " href="/vote/casedetail?id={$vo.id}">《{$vo.title}》</a>
+                </div>
+                <div class="item-text f-14">
+                    <a class="item-text-a" href="/vote/companydetail?id={$vo.company_id}">{$vo.team}</a>
+                </div>
+            </li>
+        </volist>
+        <div id="list_next" class="clearfix"></div>
+    </div>
+</div>
+
+<include file="Vote:tpl_float_bt" />
+<include file="Vote:tpl_common_foot" />
+<script>
+    $(function(){
+        "use strict";
+        app.common.init();
+        app.caseList.init();
+    })
+</script>
+</body>
+</html>

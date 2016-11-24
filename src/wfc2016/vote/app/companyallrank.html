@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="html-company-rank">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>全国参赛公司总票数排名</title>
+    <include file="Vote:tpl_common_head" />
+</head>
+<body class="body-company-rank">
+<div class="index-company-list-wrapper company-all-rank">
+    <div class="list-2">
+        <volist name="list" id="voo">
+            <div class="area-item">
+                <div class="title-company f-17"><i class="line"></i><span class="text">{$voo.title}目前前三名</span><i class="line"></i></div>
+                <div class="clearfix">
+                    <volist name="voo.list" id="vo">
+                        <if condition="$i lt 22">
+                            <div class='companyList-item col-xs-4 <!--<eq name="i" value="19">col-xs-offset-2</eq>--> '>
+                                <a href="/vote/companydetail?id={$vo.id}" class="item-pic">
+                                    <img class="img lazy"
+                                         data-original="{$vo.logo}"
+                                         src="data:image/gif;base64,R0lGODlhAQABAIAAAPDw8AAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==">
+                                </a>
+                                <a href="/vote/companydetail?id={$vo.id}" class="img-no">
+                                    <img src="images/sidai.png" alt="">
+                                    <div class="img-no-text f-11">NO.{$i}</div>
+                                </a>
+                                <a  href="/vote/companydetail?id={$vo.id}" class="item-company f-11">{$vo.name}</a>
+                                <div class="item-area f-10">{$vo.province}<i style="padding:0 3px;">|</i>{$vo.city} </div>
+                                <div class="item-ticket f-10"><span class="f-13">{$vo.num}</span>票</div>
+                            </div>
+                        </if>
+                    </volist>
+                </div>
+                <div class="see-all-rank">
+                    <a class="btn btn-color-main all-company-btn f-12" href="/vote/companyrank?aid={$voo.aid}" >查看全部排名</a>
+                </div>
+            </div>
+        </volist>
+
+    </div>
+</div>
+
+<include file="Vote:tpl_float_bt" />
+<include file="Vote:tpl_common_foot" />
+<script>
+    $(function(){
+        "use strict";
+        app.common.init();
+        //app.companyRank.init();
+        $(".area-item").eq(0).children('.see-all-rank').children('.all-company-btn').attr('href','/vote/companyrank');
+    })
+</script>
+</body>
+</html>

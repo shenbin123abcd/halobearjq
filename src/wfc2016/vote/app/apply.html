@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="html-apply">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script type="text/javascript">
+        (function () {
+            var isAndroid = navigator.userAgent.toLowerCase().indexOf("android") > -1;
+            var viewport = document.querySelector("meta[name=viewport]");
+            if (isAndroid) {
+                viewport.setAttribute('content', 'width=device-width,height=' + window.innerHeight + ', initial-scale=1, maximum-scale=1, user-scalable=0');
+            }
+        }());
+    </script>
+    <title>金熊奖参赛报名</title>
+    <include file="Vote:tpl_common_head" />
+</head>
+<body  class="body-apply">
+<div class="apply-header">
+    <div class="welcome">
+        欢迎阁下报名参赛
+    </div>
+    <div class="title">
+        2016中国婚礼策划最高奖 — 金熊奖
+    </div>
+</div>
+
+<form class="apply-form" id="apply-form">
+    <div class="group">
+        <input type="text" name="name" class="form-control form-control-main" placeholder="阁下姓名">
+    </div>
+    <div class="group">
+        <input type="text" name="company" class="form-control form-control-main" placeholder="阁下所属公司或团队">
+    </div>
+    <div class="group">
+        <input type="number" name="phone" class="form-control form-control-main" placeholder="阁下11位手机号">
+    </div>
+    <div class="group">
+        <input type="text" name="wechat" class="form-control form-control-main" placeholder="阁下微信号">
+
+    </div>
+    <div class="bt-box">
+        <button type="submit" class="btn btn-block btn-color-second btn-size-second">立即报名</button>
+    </div>
+    <div class="f-10 btn-p">金熊奖组委会工作人员将在24小时内与您联系</div>
+
+</form>
+
+<!--模态框-->
+<div class="modal fade weixin-modal" id="weixinModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <header class="text-center">中国婚礼策划金熊奖 · 幻熊科技</header>
+            <div class="modal-body text-center">
+                <div class="row">
+                    <div class="col-md-6"><img style="width: 80%;" class="code" src="images/share/weixin.png"></div>
+                </div>
+                <div class="row text">
+                    <p>您的报名已提交！</p>
+                    <p>请长按二维码添加幻熊客服微信，</p>
+                    <p>获取金熊奖最新消息。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<include file="Vote:tpl_common_foot" />
+<script>
+    $(function(){
+        "use strict";
+        app.common.init();
+        app.apply.init();
+    })
+</script>
+</body>
+</html>
